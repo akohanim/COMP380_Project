@@ -1,0 +1,19 @@
+.root{
+    -fx-background-color: #383838;
+}
+.label{
+    -fx-text-fill: aliceblue;
+    -fx-font-weight: bold;
+    -fx-font-size: 17;
+}
+.button{
+
+    -fx-background-color: gray;
+    -fx-background-radius: 0
+}
+.text-field{
+    -fx-background-color: azure;
+}
+.password-field{
+    -fx-background-color: azure;
+}
