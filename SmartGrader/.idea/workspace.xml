@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added libraries">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/TealTeam.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SmartGrader/TealTeam.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TealTeam.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TealTeam.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SignUp.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,8 +76,13 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1YowCWlnz4SjWNZXrtAEQqyIWlC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -85,7 +102,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javafx-sdk-13.0.2/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/poi-3.15/ooxml-lib" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -186,6 +203,10 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1583622129528" duration="9365000" />
+      <workItem from="1583870380437" duration="145000" />
+      <workItem from="1583873978147" duration="849000" />
+      <workItem from="1583887400582" duration="3067000" />
+      <workItem from="1583898569712" duration="2574000" />
     </task>
     <servers />
   </component>
@@ -195,39 +216,79 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="added libraries" />
+    <option name="LAST_COMMIT_MESSAGE" value="added libraries" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="415" y="191" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583904306941">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="415" y="191" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1368.872@0.0.1368.872" timestamp="1583904306941" />
     <state x="140" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583622343081">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="140" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1583622343081" />
-    <state x="388" y="179" key="FileChooserDialogImpl" timestamp="1583626730000">
+    <state x="235" y="31" key="CommitChangelistDialog2" timestamp="1583874587099">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="388" y="179" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1583626730000" />
-    <state width="1326" height="68" key="GridCell.Tab.0.bottom" timestamp="1583635280376">
+    <state x="235" y="31" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1583874587099" />
+    <state x="388" y="179" key="FileChooserDialogImpl" timestamp="1583874457523">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="68" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583635280376" />
-    <state width="1326" height="68" key="GridCell.Tab.0.center" timestamp="1583635280376">
+    <state x="388" y="179" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1583874457523" />
+    <state width="1326" height="208" key="GridCell.Tab.0.bottom" timestamp="1583903862683">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="68" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583635280376" />
-    <state width="1326" height="68" key="GridCell.Tab.0.left" timestamp="1583635280376">
+    <state width="1326" height="208" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
+    <state width="1326" height="208" key="GridCell.Tab.0.center" timestamp="1583903862683">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="68" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583635280376" />
-    <state width="1326" height="68" key="GridCell.Tab.0.right" timestamp="1583635280376">
+    <state width="1326" height="208" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
+    <state width="1326" height="208" key="GridCell.Tab.0.left" timestamp="1583903862683">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="68" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583635280376" />
-    <state x="165" y="11" key="SettingsEditor" timestamp="1583627584611">
+    <state width="1326" height="208" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
+    <state width="1326" height="208" key="GridCell.Tab.0.right" timestamp="1583903862683">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="165" y="11" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1583627584611" />
-    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup" timestamp="1583625588405">
+    <state width="1326" height="208" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
+    <state x="165" y="11" key="SettingsEditor" timestamp="1583874464626">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1583625588405" />
+    <state x="165" y="11" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1583874464625" />
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1583898737846">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="380" y="260" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1583898737846" />
+    <state x="492" y="353" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583873996103">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="492" y="353" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1583873996103" />
+    <state x="465" y="301" key="git4idea.rebase.GitRebaseDialog" timestamp="1583874359563">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="465" y="301" key="git4idea.rebase.GitRebaseDialog/0.0.1368.872@0.0.1368.872" timestamp="1583874359563" />
+    <state x="684" y="202" key="run.anything.popup" timestamp="1583889797931">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="684" y="202" key="run.anything.popup/0.0.1368.872@0.0.1368.872" timestamp="1583889797931" />
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup" timestamp="1583899031230">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="347" y="184" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1583899031230" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/sample/SignUp.java</url>
+          <line>31</line>
+          <properties class="sample.SignUp" method="clickedLogin">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

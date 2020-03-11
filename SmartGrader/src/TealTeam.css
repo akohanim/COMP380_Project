@@ -17,3 +17,6 @@
 .password-field{
     -fx-background-color: azure;
 }
+.alert.error.dialog-pane{
+    -fx-background-color: #383838;
+}
