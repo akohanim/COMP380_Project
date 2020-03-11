@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added libraries">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added libraries Sign in and sugn up page comlete">
+      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/TealTeam.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SmartGrader/TealTeam.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SmartGrader/sample/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TealTeam.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TealTeam.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SignIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SignUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +90,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
@@ -206,8 +198,16 @@
       <workItem from="1583870380437" duration="145000" />
       <workItem from="1583873978147" duration="849000" />
       <workItem from="1583887400582" duration="3067000" />
-      <workItem from="1583898569712" duration="2574000" />
+      <workItem from="1583898569712" duration="3188000" />
     </task>
+    <task id="LOCAL-00001" summary="added libraries Sign in and sugn up page comlete">
+      <created>1583904455966</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583904455966</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +217,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="added libraries" />
-    <option name="LAST_COMMIT_MESSAGE" value="added libraries" />
+    <MESSAGE value="added libraries Sign in and sugn up page comlete" />
+    <option name="LAST_COMMIT_MESSAGE" value="added libraries Sign in and sugn up page comlete" />
   </component>
   <component name="WindowStateProjectService">
     <state x="415" y="191" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583904306941">
@@ -228,34 +229,42 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="140" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1583622343081" />
-    <state x="235" y="31" key="CommitChangelistDialog2" timestamp="1583874587099">
+    <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583904786987">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="235" y="31" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1583874587099" />
+    <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1583904786987" />
+    <state x="235" y="31" key="CommitChangelistDialog2" timestamp="1583904445111">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="235" y="31" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1583904445111" />
     <state x="388" y="179" key="FileChooserDialogImpl" timestamp="1583874457523">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="388" y="179" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1583874457523" />
-    <state width="1326" height="208" key="GridCell.Tab.0.bottom" timestamp="1583903862683">
+    <state width="1326" height="208" key="GridCell.Tab.0.bottom" timestamp="1583904477972">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="208" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
-    <state width="1326" height="208" key="GridCell.Tab.0.center" timestamp="1583903862683">
+    <state width="1326" height="208" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583904477972" />
+    <state width="1326" height="208" key="GridCell.Tab.0.center" timestamp="1583904477972">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="208" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
-    <state width="1326" height="208" key="GridCell.Tab.0.left" timestamp="1583903862683">
+    <state width="1326" height="208" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583904477972" />
+    <state width="1326" height="208" key="GridCell.Tab.0.left" timestamp="1583904477970">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="208" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
-    <state width="1326" height="208" key="GridCell.Tab.0.right" timestamp="1583903862683">
+    <state width="1326" height="208" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583904477970" />
+    <state width="1326" height="208" key="GridCell.Tab.0.right" timestamp="1583904477972">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="208" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583903862683" />
+    <state width="1326" height="208" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583904477972" />
     <state x="165" y="11" key="SettingsEditor" timestamp="1583874464626">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="165" y="11" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1583874464625" />
+    <state x="490" y="351" key="VCS.ChangelistChooser" timestamp="1583904475365">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="490" y="351" key="VCS.ChangelistChooser/0.0.1368.872@0.0.1368.872" timestamp="1583904475365" />
     <state x="380" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1583898737846">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
