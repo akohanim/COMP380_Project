@@ -30,16 +30,16 @@ public class SignIn {
     private TextField PasswordTextField;
 
     @FXML
-    public void LogInClicked(ActionEvent event) {
+    public void logInClicked(ActionEvent event) {
         try {
             SignInUser logInUser = new SignInUser(EmailTextField.getText(), PasswordTextField.getText());
-            if (logInUser.DoesUserPasswordMatches() == true) {
-                /*
+            if (logInUser.DoesUserPasswordMatches()) {
+                System.out.println("Logged in");/*
                 This means the user is registered and the password matches
                 Write code that will take the user to the home page (the page that will have the courses listed)
                 TODO
                 */
-            } else if (logInUser.DoesUserExists() == true) {
+            } else if (logInUser.DoesUserExists()) {
                 //This means the user exists, and since the first "if-statement" was false that means
                 //the user password did not match, so show a message that the password does not match
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect Password", ButtonType.OK);
@@ -55,9 +55,9 @@ public class SignIn {
         }
     }
 
-    public void ClickedSignUp(ActionEvent event) throws IOException {
+    public void clickedSignUp(ActionEvent event) throws IOException {
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Pane mypane = null;
+        Pane mypane;
         mypane = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
         Scene scene = new Scene(mypane);
         stageTheEventSourceNodeBelongs.setScene(scene);

@@ -4,51 +4,51 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="600.0" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignInController">
-  <columnConstraints>
-    <ColumnConstraints maxWidth="132.0" minWidth="52.0" prefWidth="90.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="131.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="230.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="181.0" />
-  </columnConstraints>
-  <rowConstraints>
-      <RowConstraints maxHeight="153.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="137.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-  </rowConstraints>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="600.0" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignIn">
+    <columnConstraints>
+        <ColumnConstraints maxWidth="132.0" minWidth="52.0" prefWidth="90.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="131.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="230.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="181.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="153.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="137.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+    </rowConstraints>
 
-   <Label text="User Name:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Label text="User Name:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-   <TextField fx:id="EmailTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-   <VBox GridPane.columnIndex="1" GridPane.rowIndex="3">
-      <children>
-      
-         <Label text="Password:" />
-      </children>
-   </VBox>
-   <VBox prefHeight="87.0" prefWidth="188.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-      <children>
-         <PasswordField fx:id="PasswordTextField" />
-         <Button fx:id="LogInButton" onAction="#LogInClicked" prefHeight="33.0" prefWidth="150.0" text="Log In">
-            <VBox.margin>
-               <Insets top="30.0" />
-            </VBox.margin>
-         </Button>
-      </children>
-   </VBox>
-   <VBox layoutX="147.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-      <children>
-         <HBox prefHeight="202.0" prefWidth="188.0">
-            <children>
-               <Button fx:id="SignInButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: darkcyan; -fx-text-fill: aliceblue;" text="Sign in" />
-               <Button fx:id="SignUpButton" mnemonicParsing="false" onAction="#ClickedSignUp" prefHeight="50.0" prefWidth="90.0" text="Sign Up" />
-            </children></HBox>
-      </children>
-   </VBox>
-  
+    <TextField fx:id="EmailTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <children>
+
+            <Label text="Password:" />
+        </children>
+    </VBox>
+    <VBox prefHeight="87.0" prefWidth="188.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <children>
+            <PasswordField fx:id="PasswordTextField" />
+            <Button fx:id="LogInButton" onAction="#logInClicked" prefHeight="33.0" prefWidth="150.0" text="Log In">
+                <VBox.margin>
+                    <Insets top="30.0" />
+                </VBox.margin>
+            </Button>
+        </children>
+    </VBox>
+    <VBox layoutX="147.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <children>
+            <HBox prefHeight="202.0" prefWidth="188.0">
+                <children>
+                    <Button fx:id="SignInButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: darkcyan; -fx-text-fill: aliceblue;" text="Sign in" />
+                    <Button fx:id="SignUpButton" mnemonicParsing="false" onAction="#clickedSignUp" prefHeight="50.0" prefWidth="90.0" text="Sign Up" />
+                </children></HBox>
+        </children>
+    </VBox>
+
 </GridPane>
