@@ -2,16 +2,16 @@
   <library name="lib">
     <CLASSES>
       <root url="file://$USER_HOME$/Downloads/javafx-sdk-13.0.2/lib" />
-      <root url="file://$PROJECT_DIR$/poi-3.15/lib" />
-      <root url="file://$PROJECT_DIR$/poi-3.15/ooxml-lib" />
+      <root url="file://$USER_HOME$/OneDrive/Documents/COMP380_Project/SmartGrader/poi-3.15/lib" />
+      <root url="file://$USER_HOME$/OneDrive/Documents/COMP380_Project/SmartGrader/poi-3.15/ooxml-lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="file://$USER_HOME$/Downloads/javafx-sdk-13.0.2/lib" />
     </SOURCES>
     <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-13.0.2/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/poi-3.15/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/poi-3.15/ooxml-lib" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/OneDrive/Documents/COMP380_Project/SmartGrader/poi-3.15/lib" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/OneDrive/Documents/COMP380_Project/SmartGrader/poi-3.15/ooxml-lib" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-13.0.2/lib" recursive="false" type="SOURCES" />
   </library>
 </component>
