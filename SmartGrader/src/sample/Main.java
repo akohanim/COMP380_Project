@@ -8,8 +8,19 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private static Stage primaryStage; // **Declare static Stage**
+
+    //Setters and getters are so i can access the main window from any controller
+    private static void setPrimaryStage(Stage stage) {
+        Main.primaryStage = stage;
+    }
+    static public Stage getPrimaryStage() {
+        return Main.primaryStage;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+       setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         primaryStage.setTitle("SmartGrader");
         primaryStage.setScene(new Scene(root, 600, 400));

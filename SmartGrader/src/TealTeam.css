@@ -1,19 +1,33 @@
 .root{
-    -fx-background-color: #383838;
+    -fx-background-color:  #536668;
 }
 .label{
-    -fx-text-fill: aliceblue;
+    -fx-text-fill: #a5b6b8;
     -fx-font-weight: bold;
     -fx-font-size: 17;
 }
 .button{
+    /*when button is highlighted background color is #276d7e*/
+    -fx-background-color: #a5b6b8;
+    -fx-background-radius: 0;
+    -fx-font-size: 17;
+    -fx-text-fill: #31574f;
+    -fx-background-size: cover;
+   /*-fx-border-width: 5;
+    -fx-border-color: black;*/
 
-    -fx-background-color: gray;
-    -fx-background-radius: 0
 }
 .text-field{
-    -fx-background-color: azure;
+    -fx-background-color: #f0f8ff;
 }
 .password-field{
-    -fx-background-color: azure;
+    -fx-background-color: aliceblue;
 }
+.scroll-pane{
+    -fx-background-color: #383838;
+}
+.scroll-bar {
+    -fx-background-color: #383838;
+}
+.
+

@@ -1,5 +1,5 @@
 /*package sample;
-
+//TODO: I believe this file is no longer necessary, please confirm.
 import java.awt.EventQueue;
 import java.io.File;
 import java.io.IOException;
