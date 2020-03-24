@@ -15,11 +15,11 @@
         <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints />
         <RowConstraints />
     </rowConstraints>
@@ -34,39 +34,39 @@
         </children>
     </VBox>
     <VBox prefHeight="87.0" prefWidth="188.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-      <children>
-         <TextField fx:id="LastNameTextField" />
-      </children>
+        <children>
+            <TextField fx:id="LastNameTextField" />
+        </children>
     </VBox>
     <VBox layoutX="147.0" layoutY="10.0" prefHeight="44.0" prefWidth="242.0" GridPane.columnIndex="2">
         <children>
             <Region />
         </children>
     </VBox>
-      <Button fx:id="LogInButton" onAction="#loginClicked" prefHeight="33.0" prefWidth="150.0" text="Log In" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-   <VBox GridPane.columnIndex="2" GridPane.rowIndex="5">
-      <children>
-         <PasswordField fx:id="PasswordTextField" />
-      </children></VBox>
-   <VBox GridPane.columnIndex="2" GridPane.rowIndex="4">
-      <children>
-         <TextField fx:id="EmailTextField" />
-      </children></VBox>
-   <VBox GridPane.columnIndex="1" GridPane.rowIndex="4">
-      <children>
-         <Label text="Email:" />
-      </children>
-   </VBox>
-   <VBox GridPane.columnIndex="1" GridPane.rowIndex="5">
-      <children>
-         <Label text="Password:" />
-      </children>
-   </VBox>
-      <HBox prefHeight="75.0" prefWidth="242.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-          <children>
-              <Button fx:id="SignInButton" mnemonicParsing="false" onAction="#clickedSignIn" prefHeight="39.0" prefWidth="99.0" text="Sign in" />
-              <Button fx:id="SignUpButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0" style="-fx-background-color: darkcyan; -fx-text-fill: aliceblue;" styleClass="text-field" text="Sign Up" />
-          </children>
-   </HBox>
+    <Button fx:id="LogInButton" onAction="#loginClicked" prefHeight="33.0" prefWidth="150.0" text="Log In" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="5">
+        <children>
+            <PasswordField fx:id="PasswordTextField" />
+        </children></VBox>
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="4">
+        <children>
+            <TextField fx:id="EmailTextField" />
+        </children></VBox>
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <children>
+            <Label text="Email:" />
+        </children>
+    </VBox>
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <children>
+            <Label text="Password:" />
+        </children>
+    </VBox>
+    <HBox prefHeight="75.0" prefWidth="242.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <children>
+            <Button fx:id="SignInButton" mnemonicParsing="false" onAction="#clickedSignIn" prefHeight="39.0" prefWidth="99.0" text="Sign in" />
+            <Button fx:id="SignUpButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0" style="-fx-background-color: darkcyan; -fx-text-fill: aliceblue;" styleClass="text-field" text="Sign Up" />
+        </children>
+    </HBox>
 
 </GridPane>
