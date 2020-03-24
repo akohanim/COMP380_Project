@@ -49,9 +49,11 @@ public class HomePage {
 
 
     public void clickAdd(ActionEvent event) throws IOException {
+
         Pane mypane = FXMLLoader.load(getClass().getResource("CourseTile.fxml"));
         mypane.setMaxSize(200,400);
         tilePane.getChildren().add(mypane);
+
 
         //puts the button at the end
         tilePane.getChildren().remove(AddCourseButton);

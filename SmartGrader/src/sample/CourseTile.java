@@ -8,6 +8,8 @@ public class CourseTile extends Node {
 
     }
 
+    public void initialize() {}
+
     @Override
     public Node getStyleableNode() {
         return null;

@@ -25,5 +25,7 @@ public class AddCoursePage {
         //TODO: not sure what needs to be done when the button is added
         CourseNameTextField.getText();
         SectionNumberTextField.getText();
+
+
      }
 }
