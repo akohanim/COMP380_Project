@@ -1,10 +1,13 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.css.converter.LadderConverter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
@@ -12,12 +15,15 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
 public class HomePage {
 
+    public TilePane tilePane;
     @FXML
     Button AddCourseButton;
 
@@ -41,4 +47,15 @@ public class HomePage {
 
     }
 
+
+    public void clickAdd(ActionEvent event) throws IOException {
+        Pane mypane = FXMLLoader.load(getClass().getResource("CourseTile.fxml"));
+        mypane.setMaxSize(200,400);
+        tilePane.getChildren().add(mypane);
+
+        //puts the button at the end
+        tilePane.getChildren().remove(AddCourseButton);
+        tilePane.getChildren().add(AddCourseButton);
+
+    }
 }
