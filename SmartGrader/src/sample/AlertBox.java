@@ -4,8 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-//TODO:need to make custom alretbox to fit program theme
-
 public class AlertBox {
 
     @FXML

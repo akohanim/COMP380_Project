@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <GridPane alignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../TealTeam.css" vgap="10.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddCoursePage">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="128.0" />
@@ -19,12 +18,12 @@
    <children>
       <HBox alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Add">
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Add" onAction="#AddButtonClicked">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></Button>
             <Region HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
+            <Button  alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Cancel"  onAction="#CancelButtonClicked" />
          </children>
       </HBox>
       <HBox />
@@ -35,7 +34,7 @@
                   <Insets top="50.0" />
                </VBox.margin>
             </VBox>
-            <TextField fx:id="SectionNumberTextField" onAction="#AddButtonClicked"/>
+            <TextField fx:id="SectionNumberTextField" />
          </children>
       </VBox>
       <HBox alignment="CENTER" GridPane.columnIndex="1">
@@ -48,7 +47,7 @@
             <Label text="Course Name: " />
          </children>
       </HBox>
-      <TextField fx:id="CourseNameTextField"  onAction="#CancelButtonClicked" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="CourseNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <HBox alignment="CENTER" GridPane.rowIndex="2">
          <children>
             <Label alignment="CENTER" text="Section Number:" textAlignment="CENTER" />

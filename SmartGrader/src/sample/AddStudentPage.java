@@ -19,13 +19,19 @@ public class AddStudentPage {
     @FXML
     private TextField StudentIDNumberTextField;
 
+    //close popup window
     public void clickedCancel(ActionEvent event) {
-        //close popup window
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stageTheEventSourceNodeBelongs.close();
     }
 
+
     public void clickedAddButton(ActionEvent event) {
+        //TODO Add Button must add Student to backend spreadsheet
+
+        FirstNameTextField.getText();
+        LastNameTextField.getText();
+        StudentIDNumberTextField.getText();
 
     }
 }

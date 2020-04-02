@@ -20,11 +20,22 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-       setPrimaryStage(primaryStage);
+        setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         primaryStage.setTitle("SmartGrader");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
+
+        /*Test fullscreen windows
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+        primaryStage.setX(bounds.getMinX());
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setWidth(bounds.getWidth());
+        primaryStage.setHeight(bounds.getHeight());
+        */
+
+
     }
 
 

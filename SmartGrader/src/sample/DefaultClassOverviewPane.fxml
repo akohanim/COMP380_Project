@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../TealTeam.css"
+      xmlns="http://javafx.com/javafx/10.0.2-internal" BorderPane.alignment="CENTER"
+      fx:controller="sample.DefaultClassOverviewPane">
+    <TableView fx:id="tableView" editable="true" snapToPixel="false">
+        <columns>
+            <TableColumn prefWidth="154.0" text="Name"/>
+            <TableColumn prefWidth="187.0" text="Overall Grade"/>
+        </columns>
+    </TableView>
+    <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS"/>
+    <HBox alignment="CENTER" spacing="20.0">
+        <Button text="Add Student" fx:id="AddStudentButton" onAction="#clickedAddStudent"/>
+        <Button text="Add Assignment" fx:id="AddAssignmentButton" onAction="#clickedAddAssignment"/>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+    </HBox>
+</VBox>
