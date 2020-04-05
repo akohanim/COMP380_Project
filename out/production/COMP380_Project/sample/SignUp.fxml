@@ -36,7 +36,7 @@
             <TextField fx:id="LastNameTextField" />
         </children>
     </VBox>
-    <Button fx:id="LogInButton" onAction="#loginClicked" prefHeight="33.0" prefWidth="150.0" styleClass="button" text="Log In" GridPane.columnIndex="2" GridPane.rowIndex="5">
+    <Button fx:id="LogInButton" onAction="#loginClicked" prefHeight="33.0" prefWidth="150.0" styleClass="button" text="Sign Up" GridPane.columnIndex="2" GridPane.rowIndex="5">
       <GridPane.margin>
          <Insets bottom="40.0" top="40.0" />
       </GridPane.margin></Button>

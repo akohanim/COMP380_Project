@@ -17,10 +17,10 @@ import java.io.IOException;
 public class SignIn {
 
     @FXML
-    private static Button SignInButton;
+    private Button SignInButton;
 
     @FXML
-    private static Button SignUpButton;
+    private Button SignUpButton;
 
     @FXML
     private TextField EmailTextField;
@@ -28,28 +28,42 @@ public class SignIn {
     @FXML
     private TextField PasswordTextField;
 
+
     @FXML
     public void logInClicked(ActionEvent event) {
         try {
-            SignInUser logInUser = new SignInUser(EmailTextField.getText(), PasswordTextField.getText());
-            if (logInUser.DoesUserPasswordMatches()) {
-                System.out.println("Logged in");/*
+            SignInUser signInUser = new SignInUser(EmailTextField.getText(), PasswordTextField.getText());
+            if (signInUser.DoesUserExists()) {
+                if (signInUser.DoesUserPasswordMatches()) {
+                    System.out.println("Logged in");/*
                 This means the user is registered and the password matches
-                Take the user to the home page (the page that will have the courses listed)
-                TODO: My code takes each account and takes us to the general homepage
-                TODO: The initialize method in the controller HomePage.java will need to load their classes
+                Take the user to the home page (the page that will have the courses listed
                 */
-                Parent parent = FXMLLoader.load(getClass().getResource("Homepage.fxml"));
-                Scene scene = new Scene(parent);
-                Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                stageTheEventSourceNodeBelongs.setScene(scene);
-                stageTheEventSourceNodeBelongs.show();
 
-            } else if (logInUser.DoesUserExists()) {
-                //This means the user exists, and since the first "if-statement" was false that means
-                //the user password did not match, so show a message that the password does not match
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect Password", ButtonType.OK);
-                alert.showAndWait();
+                    LoadCourses loadCourses = new LoadCourses(EmailTextField.getText());
+                    //Open up HomePage
+                    FXMLLoader homePageLoader = new FXMLLoader();
+                    homePageLoader.setLocation(getClass().getResource("HomePage.fxml"));
+                    Parent parent = homePageLoader.load();
+                    //assign homePageController
+                    HomePage homePageController = homePageLoader.getController();
+                    //set keep Email for use in next text field
+                    homePageController.setUsername(EmailTextField.getText());
+                    //Fill homepage with tiles
+                    homePageController.fillClassTiles(EmailTextField.getText());
+                    homePageController.moveAddButtonToEnd();
+                    //Change window
+                    Scene scene = new Scene(parent);
+                    Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stageTheEventSourceNodeBelongs.setScene(scene);
+                    stageTheEventSourceNodeBelongs.show();
+
+                } else {
+                    //This means the user exists, and since the first "if-statement" was false that means
+                    //the user password did not match, so show a message that the password does not match
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect Password", ButtonType.OK);
+                    alert.showAndWait();
+                }
             } else {
                 //Show a message that the email is not registered
                 Alert alert = new Alert(Alert.AlertType.ERROR, "User Not Found.", ButtonType.OK);

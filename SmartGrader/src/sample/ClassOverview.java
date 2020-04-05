@@ -40,7 +40,7 @@ public class ClassOverview {
 
     //Class Overview Methods
     @FXML
-    public void initialize() throws IOException {
+    public void initialize() {
     }
 
     //clicking home button takes you back to homepage.

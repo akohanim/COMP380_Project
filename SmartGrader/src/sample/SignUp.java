@@ -9,10 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.*;
 
 import java.io.IOException;
 
@@ -53,12 +50,11 @@ public class SignUp{
             try {
                 SignUpUser signUpUser = new SignUpUser(FirstNameTextField.getText(), LastNameTextField.getText(), EmailTextField.getText(), PasswordTextField.getText());
 
-                if (signUpUser.getUserAlreadyExists()) {
+                if (signUpUser.does_User_Exists()) {
                     //Show a Message that the user already exists
                     Alert alert = new Alert(Alert.AlertType.ERROR, "User already exists.", ButtonType.OK);
                     alert.showAndWait();
-                }
-                else{
+                } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "User has been created", ButtonType.OK);
                     alert.showAndWait();
                 }

@@ -12,7 +12,7 @@
    <bottom>
       <HBox alignment="BASELINE_RIGHT" prefHeight="24.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Account">
+            <Button mnemonicParsing="false" text="Account" onAction="#clickedAccount">
                <HBox.margin>
                   <Insets right="10.0"/>
                </HBox.margin>

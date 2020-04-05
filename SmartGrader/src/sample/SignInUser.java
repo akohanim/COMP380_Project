@@ -3,33 +3,32 @@ package sample;
 import java.io.IOException;
 
 public class SignInUser {
-	
-	private boolean UserExists;
-	private boolean UserPasswordMatches;
-	
-	public SignInUser(String Email, String Password) throws IOException {
-		UsersData usersData = new UsersData();
-		int totalNumberOfUsers = usersData.getLastRow();
-		for (int i = 0; i < totalNumberOfUsers; i++) {
-			if (Email.equalsIgnoreCase(usersData.getEmail(i))) {
-				UserExists = true;
-				if (Password.equals(usersData.getPassword(i))) {
-					UserPasswordMatches = true;
-					System.out.println("Log In Successful!");
-				}
-				break;
-			} else {
-				UserExists = false;
-				UserPasswordMatches = false;
-			}
-		}
-	}
-	
-	public boolean DoesUserExists() {
-		return UserExists;
-	}
-	public boolean DoesUserPasswordMatches() {
-		return UserPasswordMatches;
-	}
-	
+
+    private boolean UserExists = false;
+    private boolean UserPasswordMatches = false;
+
+
+    public SignInUser(String Email, String Password) throws IOException {
+
+        ExcelFileManager accountsFile = new ExcelFileManager("Accounts.xlsx");
+
+        for (int i = 1; i <= accountsFile.get_Last_Row_Of_The_Sheet("Accounts"); i++) {
+            if (Email.equalsIgnoreCase(accountsFile.get_Data_At("Accounts", i, 2))) {
+                UserExists = true;
+                if (Password.equals(accountsFile.get_Data_At("Accounts", i, 3))) {
+                    UserPasswordMatches = true;
+                }
+                break;
+            }
+        }
+    }
+
+    public boolean DoesUserExists() {
+        return UserExists;
+    }
+
+    public boolean DoesUserPasswordMatches() {
+        return UserPasswordMatches;
+    }
+
 }
