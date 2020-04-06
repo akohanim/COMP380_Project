@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../TealTeam.css"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1000" prefWidth="1000" stylesheets="@../TealTeam.css"
             xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.ClassOverview">
    <top>
       <HBox alignment="CENTER_LEFT" spacing="50.0" BorderPane.alignment="CENTER">
@@ -78,6 +78,12 @@
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
+            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="classNameLabel" text="Label"/>
+                  <Label fx:id="courseNumberLabel" text="Label"/>
+               </children>
+            </VBox>
          </children>
          <BorderPane.margin>
             <Insets bottom="15.0" left="30.0" top="15.0"/>

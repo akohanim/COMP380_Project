@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -36,6 +38,8 @@ public class ClassOverview {
     private Button SearchButton;
     @FXML
     private Button HomeButton;
+    @FXML
+    private Label classNameLabel, courseNumberLabel;
 
 
     private String username, courseName;
@@ -146,4 +150,12 @@ public class ClassOverview {
     }
 
 
+    public void setClassNameLabel(String name) {
+        classNameLabel.textProperty().bind(new SimpleStringProperty("Course Name: " + name));
+
+    }
+
+    public void setCourseNumberLabel(String number) {
+        courseNumberLabel.textProperty().bind(new SimpleStringProperty("Course Number: " + number));
+    }
 }

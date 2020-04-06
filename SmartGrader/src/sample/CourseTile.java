@@ -68,6 +68,8 @@ public class CourseTile extends Node {
         //set keep Email for use in next text field
         classOverviewController.setUsername(getUserName());
         classOverviewController.setCourseName(getUserName());
+        classOverviewController.setClassNameLabel(getClassName());
+        classOverviewController.setCourseNumberLabel(getCourseNumber());
 
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
