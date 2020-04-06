@@ -16,11 +16,12 @@ public class AddCoursePage {
     String courseName;
     String sectionNumber;
 
-    @FXML
-    private TextField SectionNumberTextField;
     /* The add course page works by setting 2 local variables form the initialize method, and then
     returning those filled strings back to the homepage
-     */
+    */
+    @FXML
+    private TextField SectionNumberTextField;
+
     @FXML
     private TextField CourseNameTextField;
 

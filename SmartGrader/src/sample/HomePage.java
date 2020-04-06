@@ -3,7 +3,6 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,15 +34,22 @@ public class HomePage {
     @FXML
     public void initialize() throws IOException {
         //set Window to full screen
-        Stage stage = Main.getPrimaryStage();
+        /*
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
         stage.setX(bounds.getMinX());
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
+        stage.setHeight(bounds.getHeight());*/
     }
 
+    public void start(Stage window) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Homepage.fxml"));
+        Scene scene = new Scene(root);
+        window.setScene(scene);
+        window.setMaximized(true);
+        window.show();
+    }
 
     public void clickAdd(ActionEvent event) throws IOException {
 
@@ -90,6 +95,8 @@ public class HomePage {
             CourseTile courseTileController = tileLoader.getController();
             //assign Name
             courseTileController.setClassNameLabel(loadCourses.get_Course_Name_For_Index(i));
+            courseTileController.setCourseNumber(loadCourses.get_Course_Section_Number_For_Index(i));
+            courseTileController.setUserName(getUsername());
             if (loadCourses.get_Course_Icon(loadCourses.get_Course_Name_For_Index(i)).equals("")) {
                 //assign color
                 courseTileController.setTileColor(loadCourses.get_Course_Color(loadCourses.get_Course_Name_For_Index((i))));
@@ -111,7 +118,6 @@ public class HomePage {
                     EditTilePage editTilePageController = editTileLoader.getController();
                     editTilePageController.setUserName(username);
                     editTilePageController.setCourseName(courseTileController.getClassName());
-
                     System.out.println("Class Name:" + courseTileController.getClassName());
                     System.out.println("User Name:" + editTilePageController.getUserName());
                     Scene scene = new Scene(root);
@@ -170,12 +176,14 @@ public class HomePage {
 
     public void clickedLogout(ActionEvent event) throws IOException {
         //open Sign in page
-        Parent parent = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(scene);
-        stageTheEventSourceNodeBelongs.centerOnScreen();
-        stageTheEventSourceNodeBelongs.show();
+        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+        Stage oldStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        oldStage.close();
     }
 
     public void clickedAccount(ActionEvent event) throws IOException {

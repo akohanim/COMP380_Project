@@ -24,10 +24,32 @@ public class CourseTile extends Node {
 
     @FXML
     public Button settingsButton;
-    public String className;
+
+
+    private String className, userName, courseNumber;
 
     public String getClassName() {
         return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getCourseNumber() {
+        return courseNumber;
+    }
+
+    public void setCourseNumber(String courseNumber) {
+        this.courseNumber = courseNumber;
     }
 
     public void initialize() {
@@ -38,10 +60,24 @@ public class CourseTile extends Node {
     }
 
     public void clickClassButton(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("ClassOverview.fxml"));
+        FXMLLoader courseOverviewLoader = new FXMLLoader();
+        courseOverviewLoader.setLocation(getClass().getResource("ClassOverview.fxml"));
+        Parent parent = courseOverviewLoader.load();
+        //assign homePageController
+        ClassOverview classOverviewController = courseOverviewLoader.getController();
+        //set keep Email for use in next text field
+        classOverviewController.setUsername(getUserName());
+        classOverviewController.setCourseName(getUserName());
+
         Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setMaximized(true);
+        stage.setScene(scene);
+        stage.show();
+
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stageTheEventSourceNodeBelongs.setScene(scene);
+        stageTheEventSourceNodeBelongs.close();
+
     }
 
     //set name to label

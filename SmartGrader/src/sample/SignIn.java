@@ -29,6 +29,7 @@ public class SignIn {
     private TextField PasswordTextField;
 
 
+
     @FXML
     public void logInClicked(ActionEvent event) {
         try {
@@ -53,11 +54,16 @@ public class SignIn {
                     homePageController.fillClassTiles(EmailTextField.getText());
                     homePageController.moveAddButtonToEnd();
                     //Change window
+                    //Change window
                     Scene scene = new Scene(parent);
-                    Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stageTheEventSourceNodeBelongs.setScene(scene);
-                    stageTheEventSourceNodeBelongs.show();
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setMaximized(true);
+                    stage.show();
 
+                    //close sign in window
+                    Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stageTheEventSourceNodeBelongs.close();
                 } else {
                     //This means the user exists, and since the first "if-statement" was false that means
                     //the user password did not match, so show a message that the password does not match

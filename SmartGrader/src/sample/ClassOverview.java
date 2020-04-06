@@ -38,6 +38,24 @@ public class ClassOverview {
     private Button HomeButton;
 
 
+    private String username, courseName;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
     //Class Overview Methods
     @FXML
     public void initialize() {
@@ -46,10 +64,25 @@ public class ClassOverview {
     //clicking home button takes you back to homepage.
     public void homeButtonClicked(ActionEvent event) throws IOException {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            FXMLLoader homePageLoader = new FXMLLoader();
+            homePageLoader.setLocation(getClass().getResource("HomePage.fxml"));
+            Parent parent = homePageLoader.load();
+            //assign homePageController
+            HomePage homePageController = homePageLoader.getController();
+            //set keep Email for use in next text field
+            homePageController.setUsername(getUsername());
+            //Fill homepage with tiles
+            homePageController.fillClassTiles(getUsername());
+            homePageController.moveAddButtonToEnd();
+
             Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setMaximized(true);
+            stage.setScene(scene);
+            stage.show();
+
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stageTheEventSourceNodeBelongs.setScene(scene);
+            stageTheEventSourceNodeBelongs.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
