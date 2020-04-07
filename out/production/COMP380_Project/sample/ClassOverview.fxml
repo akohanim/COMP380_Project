@@ -4,141 +4,150 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
-<BorderPane prefHeight="1000" prefWidth="1000" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClassOverview">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="1000" prefWidth="1000" stylesheets="@../TealTeam.css"
+            xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.ClassOverview">
    <top>
       <HBox alignment="CENTER_LEFT" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="HomeButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#homeButtonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #536668;">
+            <Button fx:id="HomeButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false"
+                    onAction="#homeButtonClicked" prefHeight="100.0" prefWidth="100.0"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/HomeButton.png" />
+                        <Image url="@../thumbnails/HomeButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
                <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="10.0" top="10.0"/>
                </HBox.margin>
             </Button>
-            <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#searchButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#searchButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/SearchButton.png" />
+                        <Image url="@../thumbnails/SearchButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
-            <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#saveButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#saveButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/SaveButton.png" />
+                        <Image url="@../thumbnails/SaveButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
-            <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#printButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="PrintButton" mnemonicParsing="false" onAction="#printButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/PrintButton.png" />
+                        <Image url="@../thumbnails/PrintButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
-            <Button fx:id="DeleteButton" mnemonicParsing="false" onAction="#deleteButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="DeleteButton" mnemonicParsing="false" onAction="#deleteButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/DeleteButton.png" />
+                        <Image url="@../thumbnails/DeleteButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
             <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="classNameLabel" text="Label" />
-                  <Label fx:id="courseNumberLabel" text="Label" />
+                  <Label fx:id="classNameLabel" text="Label"/>
+                  <Label fx:id="courseNumberLabel" text="Label"/>
                </children>
             </VBox>
          </children>
          <BorderPane.margin>
-            <Insets bottom="15.0" left="30.0" top="15.0" />
+            <Insets bottom="15.0" left="30.0" top="15.0"/>
          </BorderPane.margin>
       </HBox>
    </top>
    <left>
       <VBox alignment="TOP_CENTER" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="CurveButton" mnemonicParsing="false" onAction="#curveButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="CurveButton" mnemonicParsing="false" onAction="#curveButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/CurveButton.png" />
+                        <Image url="@../thumbnails/CurveButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
-            <Button fx:id="WeightButton" mnemonicParsing="false" onAction="#weightButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="WeightButton" mnemonicParsing="false" onAction="#weightButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/WeightButton.png" />
+                        <Image url="@../thumbnails/WeightButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
-            <Button fx:id="GraphButton" mnemonicParsing="false" onAction="#graphButtonClicked" style="-fx-background-color: #536668;">
+            <Button fx:id="GraphButton" mnemonicParsing="false" onAction="#graphButtonClicked"
+                    style="-fx-background-color: #536668;">
                <graphic>
                   <ImageView pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../thumbnails/GraphButton.png" />
+                        <Image url="@../thumbnails/GraphButton.png"/>
                      </image>
                   </ImageView>
                </graphic>
                <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
                </padding>
             </Button>
          </children>
          <padding>
-            <Insets top="10.0" />
+            <Insets top="10.0"/>
          </padding>
          <BorderPane.margin>
-            <Insets bottom="30.0" left="30.0" right="30.0" />
+            <Insets bottom="30.0" left="30.0" right="30.0"/>
          </BorderPane.margin>
       </VBox>
    </left>
    <center>
       <BorderPane fx:id="mainView">
          <center>
-            <fx:include source="DefaultClassOverviewPane.fxml" />
+            <fx:include source="DefaultClassOverviewPane.fxml"/>
          </center>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0"/>
          </padding>
       </BorderPane>
    </center>

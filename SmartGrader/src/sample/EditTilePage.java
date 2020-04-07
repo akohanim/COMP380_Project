@@ -18,10 +18,17 @@ public class EditTilePage {
     public ColorPicker colorPicker;
     public Button uploadImageButton, saveButton, deleteButton;
 
-    public String courseName, userName;
-    public boolean changedCourse;
+    public String courseName, userName, courseNumber;
     public File file;
     Color color;
+
+    public String getCourseNumber() {
+        return courseNumber;
+    }
+
+    public void setCourseNumber(String courseNumber) {
+        this.courseNumber = courseNumber;
+    }
 
     public String getCourseName() {
         return courseName;
@@ -41,7 +48,6 @@ public class EditTilePage {
 
     @FXML
     public void initialize() {
-        changedCourse = false;
         userName = "";
         file = null;
         color = null;
@@ -52,13 +58,9 @@ public class EditTilePage {
         CourseSettings courseSettings = new CourseSettings(userName, courseName);
 
         try {
-            if (!courseNameTextfield.getText().trim().isEmpty() || !(courseNameTextfield.getText().equals(""))) {
-                courseSettings.rename_The_Course_To(courseNameTextfield.getText());
-                setCourseName(courseNameTextfield.getText());
-            }
             if (!courseNumberTextfield.getText().trim().isEmpty() || !(courseNumberTextfield.getText().equals(""))) {
                 courseSettings.change_The_Course_Section_Number_To(courseNumberTextfield.getText());
-                setCourseName(courseNumberTextfield.getText());
+                setCourseNumber(courseNumberTextfield.getText());
             }
             if (file != null) {
                 courseSettings.save_The_Course_Icon(file.getAbsolutePath());
@@ -66,6 +68,11 @@ public class EditTilePage {
             if (color != null) {
                 System.out.println("Red: " + color.getRed() + " Green: " + color.getGreen() + " Blue: " + color.getBlue());
                 courseSettings.save_The_Course_Color((int) (color.getRed() * 255), (int) (color.getGreen() * 255), (int) (color.getBlue() * 255));
+            }
+            //Change name last, so as to not mess with other inputs
+            if (!courseNameTextfield.getText().trim().isEmpty() || !(courseNameTextfield.getText().equals(""))) {
+                courseSettings.rename_The_Course_To(courseNameTextfield.getText());
+                setCourseName(courseNameTextfield.getText());
             }
         } catch (IOException e) {
             e.printStackTrace();

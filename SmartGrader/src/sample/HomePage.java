@@ -137,25 +137,6 @@ public class HomePage {
         }
     }
 
-    /*public void createCourseTile(String name) throws IOException {
-
-        //point FXML loader to CourseTile
-        FXMLLoader tileLoader = new FXMLLoader();
-        tileLoader.setLocation(getClass().getResource("CourseTile.fxml"));
-        Parent myPane = tileLoader.load();
-        //use the courseTile controller to set a name
-        CourseTile tileController = tileLoader.getController();
-        tileController.setClassNameLabel(name);
-        //add tile to pane
-        tilePane.getChildren().add(myPane);
-        tilePane.setTileAlignment(Pos.TOP_LEFT);
-
-
-        //puts the button at the end
-        tilePane.getChildren().remove(AddCourseButton);
-        tilePane.getChildren().add(AddCourseButton);
-    }*/
-
     public void addCourseTile(Node courseTile) {
         tilePane.getChildren().add(courseTile);
     }
