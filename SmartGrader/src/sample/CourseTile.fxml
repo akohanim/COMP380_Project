@@ -18,7 +18,7 @@
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
          </padding>
       </Button>
-      <HBox alignment="CENTER" minHeight="5.0" minWidth="200.0" spacing="10.0"
+      <HBox alignment="CENTER" minHeight="5.0" minWidth="200.0" spacing="2.0"
             style="-fx-background-color: #A5B6B8; -fx-border-color: #274244; -fx-border-width: 2;">
          <children>
             <Label fx:id="classNameLabel" style="-fx-text-fill: #324748;" textAlignment="JUSTIFY"/>
