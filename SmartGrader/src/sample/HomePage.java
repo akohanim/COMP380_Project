@@ -95,7 +95,7 @@ public class HomePage {
             CourseTile courseTileController = tileLoader.getController();
             //assign Name
             courseTileController.setClassNameLabel(loadCourses.get_Course_Name_For_Index(i));
-            courseTileController.setCourseNumber(loadCourses.get_Course_Section_Number_For_Index(i));
+            courseTileController.setClassNumberLabel(loadCourses.get_Course_Section_Number_For_Index(i));
             courseTileController.setUserName(getUsername());
             if (loadCourses.get_Course_Icon(loadCourses.get_Course_Name_For_Index(i)).equals("")) {
                 //assign color

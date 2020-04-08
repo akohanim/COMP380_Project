@@ -3,12 +3,11 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane prefHeight="176.0" prefWidth="512.0" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddAssignmentPage">
     <top>
         <HBox alignment="BOTTOM_CENTER" prefHeight="36.0" prefWidth="512.0" BorderPane.alignment="BOTTOM_LEFT">
             <children>
-                <Label text="Add Asignment Information" />
+                <Label text="Add Assignment Information"/>
             </children>
         </HBox>
     </top>
@@ -51,13 +50,14 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" layoutX="155.0" layoutY="90.0" prefHeight="80.0" prefWidth="222.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <children>
-                        <Label text="Last: ">
+                        <Label text="Points:">
                             <padding>
-                                <Insets bottom="5.0" />
+                                <Insets bottom="5.0"/>
                             </padding>
-                     <HBox.margin>
-                        <Insets bottom="10.0" />
-                     </HBox.margin></Label>
+                            <HBox.margin>
+                                <Insets bottom="10.0"/>
+                            </HBox.margin>
+                        </Label>
                         <TextField fx:id="PointsTextField" alignment="TOP_CENTER">
                             <HBox.margin>
                                 <Insets bottom="10.0" />

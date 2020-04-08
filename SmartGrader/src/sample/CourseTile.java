@@ -25,6 +25,8 @@ public class CourseTile extends Node {
     @FXML
     public Button settingsButton;
 
+    @FXML
+    private Label classNumberLabel;
 
     private String className, userName, courseNumber;
 
@@ -86,6 +88,11 @@ public class CourseTile extends Node {
     public void setClassNameLabel(String name) {
         className = name;
         classNameLabel.textProperty().bind(new SimpleStringProperty(name));
+    }
+
+    public void setClassNumberLabel(String number) {
+        courseNumber = number;
+        classNumberLabel.textProperty().bind(new SimpleStringProperty(number));
     }
 
     public void setTileColor(Color color) {
