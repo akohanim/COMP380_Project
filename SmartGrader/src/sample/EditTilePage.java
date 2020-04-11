@@ -3,9 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -62,12 +60,22 @@ public class EditTilePage {
                 courseSettings.change_The_Course_Section_Number_To(courseNumberTextfield.getText());
                 setCourseNumber(courseNumberTextfield.getText());
             }
-            if (file != null) {
-                courseSettings.save_The_Course_Icon(file.getAbsolutePath());
-            }
-            if (color != null) {
-                System.out.println("Red: " + color.getRed() + " Green: " + color.getGreen() + " Blue: " + color.getBlue());
-                courseSettings.save_The_Course_Color((int) (color.getRed() * 255), (int) (color.getGreen() * 255), (int) (color.getBlue() * 255));
+            if (file != null && color != null) {
+                //Alert user that tile can either have tile or color
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Course tile can either have a color or image, not both.", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+                alert.showAndWait();
+            } else {
+                if (file != null) {
+                    courseSettings.save_The_Course_Icon(file.getAbsolutePath());
+
+                }
+                if (color != null) {
+                    courseSettings.delete_Course_Icon();
+                    System.out.println("Red: " + color.getRed() + " Green: " + color.getGreen() + " Blue: " + color.getBlue());
+                    courseSettings.save_The_Course_Color((int) (color.getRed() * 255), (int) (color.getGreen() * 255), (int) (color.getBlue() * 255));
+                }
             }
             //Change name last, so as to not mess with other inputs
             if (!courseNameTextfield.getText().trim().isEmpty() || !(courseNameTextfield.getText().equals(""))) {

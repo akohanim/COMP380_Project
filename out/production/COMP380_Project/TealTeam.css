@@ -32,8 +32,20 @@
 .scroll-bar {
     -fx-background-color: #383838;
 }
+.dialog-pane {
+    -fx-background-color: #435759;
+    -fx-text-fill: #A5B6B8;
+}
+.dialog-pane .header-panel {
+    -fx-background-color: #435759;
+}
 
-
+.dialog-pane .header-panel .label{
+    -fx-background-color: #435759;
+    -fx-background-radius:10px;
+    -fx-text-fill: #A5B6B8;
+    -fx-font-size:20.0px;
+}
 .table-view {
     -fx-background-color: transparent;
 }

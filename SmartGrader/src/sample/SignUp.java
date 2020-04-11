@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -39,10 +40,11 @@ public class SignUp{
 
     public void loginClicked(ActionEvent event) {
         //some input validation
-        if (FirstNameTextField.getText().equals("") |LastNameTextField.getText().equals("")|EmailTextField.getText().equals("") |PasswordTextField.getText().equals("")  )
-        {
-            //Toss up an alert
+        if (FirstNameTextField.getText().equals("") |LastNameTextField.getText().equals("")|EmailTextField.getText().equals("") |PasswordTextField.getText().equals("")  ) {
+            //Alert for incorrect data
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect Input", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
             alert.showAndWait();
 
         }else {
@@ -53,9 +55,13 @@ public class SignUp{
                 if (signUpUser.does_User_Exists()) {
                     //Show a Message that the user already exists
                     Alert alert = new Alert(Alert.AlertType.ERROR, "User already exists.", ButtonType.OK);
+                    DialogPane dialogPane = alert.getDialogPane();
+                    dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "User has been created", ButtonType.OK);
+                    DialogPane dialogPane = alert.getDialogPane();
+                    dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                     alert.showAndWait();
                 }
 

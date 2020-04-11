@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -68,12 +65,15 @@ public class SignIn {
                     //This means the user exists, and since the first "if-statement" was false that means
                     //the user password did not match, so show a message that the password does not match
                     Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect Password", ButtonType.OK);
+                    DialogPane dialogPane = alert.getDialogPane();
+                    dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                     alert.showAndWait();
                 }
             } else {
                 //Show a message that the email is not registered
                 Alert alert = new Alert(Alert.AlertType.ERROR, "User Not Found.", ButtonType.OK);
-
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                 alert.showAndWait();
             }
         } catch (IOException e1) {

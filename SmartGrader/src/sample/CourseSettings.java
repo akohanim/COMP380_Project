@@ -27,21 +27,26 @@ public class CourseSettings {
 		userFile.update_Cell(sectionNumber, CourseName, 0, 1);
 	}
 
-	public void save_The_Course_Icon(String iconDirectory) {
-		File icon = new File(iconDirectory);
-		File saveAt = new File(CourseName + ".jpeg");
-		try {
-			FileUtils.copyFile(icon, saveAt);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    public void save_The_Course_Icon(String iconDirectory) {
+        File icon = new File(iconDirectory);
+        File saveAt = new File(CourseName + ".jpeg");
+        try {
+            FileUtils.copyFile(icon, saveAt);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-	}
+    }
 
-	public void save_The_Course_Color(int red, int green, int blue) throws IOException {
-		userFile.update_Cell(Integer.toString(red), CourseName, 0, 3);
-		userFile.update_Cell(Integer.toString(green), CourseName, 0, 4);
-		userFile.update_Cell(Integer.toString(blue), CourseName, 0, 5);
-	}
+    public void delete_Course_Icon() {
+        File icon = new File(CourseName + ".jpeg");
+        icon.delete();
+    }
+
+    public void save_The_Course_Color(int red, int green, int blue) throws IOException {
+        userFile.update_Cell(Integer.toString(red), CourseName, 0, 3);
+        userFile.update_Cell(Integer.toString(green), CourseName, 0, 4);
+        userFile.update_Cell(Integer.toString(blue), CourseName, 0, 5);
+    }
 
 }

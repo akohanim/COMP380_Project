@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 public class CourseTile extends Node {
@@ -92,7 +93,7 @@ public class CourseTile extends Node {
 
     public void setClassNumberLabel(String number) {
         courseNumber = number;
-        classNumberLabel.textProperty().bind(new SimpleStringProperty(number));
+        classNumberLabel.textProperty().bind(new SimpleStringProperty("(" + number + ")"));
     }
 
     public void setTileColor(Color color) {
@@ -101,8 +102,9 @@ public class CourseTile extends Node {
         classButton.setStyle("-fx-background-color: " + hex);
     }
 
-    public void setTileIcon(String name) {
-        classButton.setStyle("-fx-background-image: url(' " + name + " ')");
+    public void setTileIcon(String name) throws IOException {
+        File courseIcon = new File(name);
+        classButton.setStyle("-fx-background-image: url(' " + courseIcon.toURI().toString() + " ')");
     }
 
 }

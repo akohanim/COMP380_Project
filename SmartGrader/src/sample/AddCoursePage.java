@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,7 +18,7 @@ public class AddCoursePage {
     String sectionNumber;
 
     /* The add course page works by setting 2 local variables form the initialize method, and then
-    returning those filled strings back to the homepage
+    returning those filled strings back to the homepage where the data is added to a course spreadsheet
     */
     @FXML
     private TextField SectionNumberTextField;
@@ -62,11 +63,15 @@ public class AddCoursePage {
                 || CourseNameTextField.getText().trim().isEmpty() || SectionNumberTextField.getText().trim().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
             alert.showAndWait();
 
         } else {
+            //set inputs to return to homepage
             setCallbackInputs(CourseNameTextField.getText(), SectionNumberTextField.getText());
 
+            // close window
             Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stageTheEventSourceNodeBelongs.close();
 

@@ -23,6 +23,7 @@ public class Main extends Application {
         setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         primaryStage.setTitle("SmartGrader");
+        //primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
 

@@ -25,7 +25,8 @@ public class LoadCourses {
 	}
 	
 	public String get_Course_Icon(String courseName) {
-		File courseIcon = new File("courseName.jpeg");
+		String fileName = courseName + ".jpeg";
+		File courseIcon = new File(fileName);
 		if (courseIcon.exists() == true) {
 			return courseName + ".jpeg";
 		} else {

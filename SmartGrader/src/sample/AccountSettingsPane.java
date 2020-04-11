@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -35,7 +36,7 @@ public class AccountSettingsPane {
 
     @FXML
     public void initialize() {
-        //initializeFields
+        //initialize Fields as empty
         newEmail = "";
         newPassword = "";
         newFirstName = "";
@@ -64,6 +65,8 @@ public class AccountSettingsPane {
                 || firstNameTextField.getText().trim().isEmpty() || lastNameTextField.getText().trim().isEmpty() || passwordTextField.getText().trim().isEmpty() || emailTextField.getText().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
             alert.showAndWait();
 
             //set callback inputs and close window

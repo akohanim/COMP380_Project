@@ -4,12 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AddAssignmentPage {
 
-    public javafx.scene.control.ComboBox ComboBox;
+    public ComboBox comboBox;
     public TextField PointsTextField;
     public TextField NameTextField;
     public Button CancelButton;
@@ -20,11 +21,10 @@ public class AddAssignmentPage {
     public void initialize() {
         //TODO add assignment page
         //use to add multiple items to combo box upon initializing screen
-        ComboBox.getItems().addAll("Quizzes", "Homework", "Projects", "Exams");
-
+        comboBox.getItems().addAll("Quizzes", "Homework", "Projects", "Exams");
 
         //use for individual items
-        //ComboBox.getItems().add()
+        //comboBox.getItems().add()
     }
 
     public void clickedCancel(ActionEvent event) {
@@ -34,8 +34,9 @@ public class AddAssignmentPage {
     }
 
     public void clickedAddButton(ActionEvent event) {
+        //TODO:we can either set the inputs for the callback or add the assignment here and refresh the tableview in classOverview
         NameTextField.getText();
         PointsTextField.getText();
-        ComboBox.getValue();
+        comboBox.getValue();
     }
 }

@@ -3,10 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class SetCurvePage {
@@ -48,10 +45,14 @@ public class SetCurvePage {
                 SetCurveTextField.setText(Integer.toString(i - 5));
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Value too low.", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                 alert.showAndWait();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
             alert.showAndWait();
         }
     }

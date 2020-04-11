@@ -9,15 +9,9 @@ import javafx.stage.Stage;
 
 public class AddStudentPage {
     @FXML
-    private Button AddButton;
+    private Button AddButton, CancelButton;
     @FXML
-    private Button CancelButton;
-    @FXML
-    private TextField FirstNameTextField;
-    @FXML
-    private TextField LastNameTextField;
-    @FXML
-    private TextField StudentIDNumberTextField;
+    private TextField FirstNameTextField, LastNameTextField, StudentIDNumberTextField;
 
     //close popup window
     public void clickedCancel(ActionEvent event) {
@@ -27,8 +21,7 @@ public class AddStudentPage {
 
 
     public void clickedAddButton(ActionEvent event) {
-        //TODO Add Button must add Student to backend spreadsheet
-
+        //TODO Add Button must add Student to backend spreadsheet, then reset the tableview in classOverview
         FirstNameTextField.getText();
         LastNameTextField.getText();
         StudentIDNumberTextField.getText();

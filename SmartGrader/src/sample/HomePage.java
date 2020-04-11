@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -71,6 +72,8 @@ public class HomePage {
 
             if (createCourse.does_The_Course_Already_Exists()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Course already exists.", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                 alert.showAndWait();
             } else {
                 fillClassTiles(username);
@@ -187,6 +190,12 @@ public class HomePage {
                     accountSettingsPaneController.getNewLastName(), accountSettingsPaneController.getNewEmail(), accountSettingsPaneController.getNewPassword());
             //set new username as the username for this homepage
             setUsername(accountSettingsPaneController.getNewEmail());
+
+            //let user know settings were changed
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Account settings have been changed.", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+            alert.showAndWait();
         }
     }
 

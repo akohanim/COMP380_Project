@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -113,19 +114,30 @@ public class ClassOverview {
     }
 
     public void printButtonClicked(ActionEvent event) {
+        //this is a basis for printing, as long as there is data in the tableview
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job != null) {
+            boolean success = job.printPage(tableView);
+            if (success) {
+                job.endJob();
+            }
+        }
     }
 
     public void deleteButtonClicked(ActionEvent event) {
+        //TODO highlight row or column in table view then delete the contents
     }
 
     public void curveButtonClicked(ActionEvent event) throws IOException {
         try {
+            //open curve page
             Parent root = FXMLLoader.load(getClass().getResource("SetCurvePage.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,6 +146,7 @@ public class ClassOverview {
 
     public void weightButtonClicked(ActionEvent event) throws IOException {
         try {
+            //open weightPage
             Parent root = FXMLLoader.load(getClass().getResource("WeightPage.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -147,6 +160,7 @@ public class ClassOverview {
     }
 
     public void graphButtonClicked(ActionEvent event) {
+        //TODO create graph window and figure out functionality
     }
 
 

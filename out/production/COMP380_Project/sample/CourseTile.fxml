@@ -5,17 +5,21 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #274244; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CourseTile">
    <children>
-      <Button fx:id="classButton" alignment="CENTER" minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#clickClassButton">
+      <Button fx:id="classButton" alignment="CENTER" minHeight="130.0" minWidth="200.0" mnemonicParsing="false" onAction="#clickClassButton" prefHeight="160.0" prefWidth="200.0" style="-fx-border-color: #274244; -fx-border-width: 3;">
          <padding>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
          </padding>
       </Button>
-      <HBox alignment="CENTER" minHeight="5.0" minWidth="200.0" spacing="10.0" style="-fx-background-color: #A5B6B8; -fx-border-color: #274244; -fx-border-width: 2;">
+      <HBox alignment="CENTER" minHeight="5.0" minWidth="200.0" prefHeight="70.0" prefWidth="200.0" spacing="2.0" style="-fx-background-color: #A5B6B8; -fx-border-color: #274244; -fx-border-width: 1;">
          <children>
-            <Label fx:id="classNameLabel" style="-fx-text-fill: #324748;" textAlignment="JUSTIFY" />
+            <VBox alignment="CENTER">
+               <children>
+                  <Label fx:id="classNameLabel" style="-fx-text-fill: #324748; -fx-font-size: 16;" text="test" textAlignment="JUSTIFY" />
+                  <Label fx:id="classNumberLabel" style="-fx-text-fill: #324748; -fx-font-size: 16;" text="test" textAlignment="JUSTIFY" />
+               </children>
+            </VBox>
             <Region HBox.hgrow="ALWAYS" />
             <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#clickSettings" style="-fx-background-color: #A5B6B8;">
                <graphic>
