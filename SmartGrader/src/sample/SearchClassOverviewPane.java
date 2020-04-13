@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class SearchClassOverviewPane {
+    public Button ClearButton;
 
     //variables for search button screen
 
@@ -33,6 +34,7 @@ public class SearchClassOverviewPane {
     //search class Methods
     public void clickedSearchStudent(ActionEvent event) {
         //TODO Search button will update resultsTable according to results
+
     }
 
     //clear TextFields on search pane

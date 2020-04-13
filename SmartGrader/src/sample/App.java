@@ -13,7 +13,6 @@ public class App {
 					SignUpUser SignUpUser = new SignUpUser("Sulaiman", "Rahman", "Sulaiman.rahman.591@my.csun.edu", "Pakistan12");
 					
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

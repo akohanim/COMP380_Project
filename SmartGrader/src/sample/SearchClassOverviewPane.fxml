@@ -17,7 +17,7 @@
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../thumbnails/XButton.png"/>
+                            <Image url="@../thumbnails/XIcon.png"/>
                         </image>
                     </ImageView>
                 </graphic>

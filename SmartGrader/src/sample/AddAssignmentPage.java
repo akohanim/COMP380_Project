@@ -19,7 +19,6 @@ public class AddAssignmentPage {
 
     @FXML
     public void initialize() {
-        //TODO add assignment page
         //use to add multiple items to combo box upon initializing screen
         comboBox.getItems().addAll("Quizzes", "Homework", "Projects", "Exams");
 

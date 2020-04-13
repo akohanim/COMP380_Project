@@ -66,6 +66,8 @@ public class EditTilePage {
                 DialogPane dialogPane = alert.getDialogPane();
                 dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                 alert.showAndWait();
+
+
             } else {
                 if (file != null) {
                     courseSettings.save_The_Course_Icon(file.getAbsolutePath());

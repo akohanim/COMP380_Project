@@ -163,6 +163,7 @@ public class HomePage {
         Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.setTitle("SmartGrader");
         stage.setScene(scene);
         stage.show();
 

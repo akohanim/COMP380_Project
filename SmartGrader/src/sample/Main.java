@@ -21,13 +21,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         setPrimaryStage(primaryStage);
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
         primaryStage.setTitle("SmartGrader");
-        //primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
 
-        /*Test fullscreen windows
+        /*used for testing fullscreen windows
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
         primaryStage.setX(bounds.getMinX());

@@ -76,6 +76,7 @@ public class CourseTile extends Node {
 
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
+        stage.setTitle("SmartGrader");
         stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();

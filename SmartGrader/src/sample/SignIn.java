@@ -54,7 +54,9 @@ public class SignIn {
                     //Change window
                     Scene scene = new Scene(parent);
                     Stage stage = new Stage();
+                    stage.setTitle("SmartGrader");
                     stage.setScene(scene);
+
                     stage.setMaximized(true);
                     stage.show();
 

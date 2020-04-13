@@ -1,0 +1,21 @@
+.button {
+    /*when button is highlighted background color is #276d7e*/
+    -fx-background-color: #324748;
+    -fx-background-radius: 0;
+    -fx-font-size: 17;
+    -fx-text-fill: #394B4C;
+    -fx-background-size: cover;
+    -fx-border-radius: 3;
+    /*-fx-border-width: 5;
+     -fx-border-color: black;*/
+
+}
+
+.button:hover {
+    -fx-background-color: #306062;
+    -fx-border-color: teal;
+    -fx-border-width: 2;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}

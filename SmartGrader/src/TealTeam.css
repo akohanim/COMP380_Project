@@ -17,6 +17,14 @@
      -fx-border-color: black;*/
 
 }
+
+.button:hover {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
 .text-field {
     -fx-background-color: #DDEDEF;
 }
@@ -52,11 +60,6 @@
 .table-view {
     -fx-background-color: transparent;
 }
-
-.table-view:focused {
-    -fx-background-color: transparent;
-}
-
 .table-view .column-header-background {
     -fx-background-color: teal;
     -fx-border-color: #424242;
