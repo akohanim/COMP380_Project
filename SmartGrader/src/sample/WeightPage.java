@@ -2,12 +2,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class WeightPage {
 
@@ -19,7 +19,29 @@ public class WeightPage {
     public Button CancelButton;
     public Button SaveButton;
 
-    public void clickedSave(ActionEvent event) {
+    private String userEmail, courseName;
+
+    public void clickedSave(ActionEvent event) throws IOException {
+        try {
+            if (TotalPercentageLabel.getText().equals("Total Percentage: 100 %")) {
+
+                Weights weights = new Weights(getUserEmail());
+
+                weights.edit_Weight(getCourseName(), "Quiz", QuizWeightTextField.getText());
+                weights.edit_Weight(getCourseName(), "Homework", HomeworkWeightTextField.getText());
+                weights.edit_Weight(getCourseName(), "Exam", ExamWeightTextField.getText());
+                weights.edit_Weight(getCourseName(), "Projects", ProjectWeightTextField.getText());
+
+            } else {
+                //Show a message that percentage is not 100
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Percentage must equal 100.", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+                alert.showAndWait();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -40,6 +62,43 @@ public class WeightPage {
             TotalPercentageLabel.setTextFill(Color.color(.5, .2, .2));
             TotalPercentageLabel.setText(TotalPercentageLabel.getText() + ". Percentage must be 100.");
         }
+    }
+
+
+    public void loadWeightsForClass() throws IOException {
+        try {
+            Weights weights = new Weights(getUserEmail());
+
+            //Make sure weights exist before entering default weights
+            if (!weights.load_Weight_Percentage(getCourseName(), "Quiz").equals(getUserEmail() + " does not exists.")) {
+
+                //fill all weights with stored data
+                QuizWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Quiz"));
+                HomeworkWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Homework"));
+                ExamWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Exam"));
+                ProjectWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Projects"));
+
+                TotalPercentageLabel.setText("Total Percentage: " + weights.get_Total_Weight_Percentage(getCourseName()) + " %");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
 }

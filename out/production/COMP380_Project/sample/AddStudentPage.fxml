@@ -13,31 +13,29 @@
       </HBox>
    </top>
    <bottom>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane hgap="20.0" vgap="20.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="262.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="250.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="AddButton" mnemonicParsing="false" text="Add" onAction="#clickedAddButton"/>
+                  <Button fx:id="AddButton" mnemonicParsing="false" onAction="#clickedAddButton" text="Add" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="CancelButton" mnemonicParsing="false" text="Cancel" onAction="#clickedCancel"/>
+                  <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#clickedCancel" text="Cancel" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="222.0" spacing="5.0" GridPane.rowIndex="1">
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="222.0" spacing="5.0">
                <children>
                   <Label text="First: ">
                      <HBox.margin>
@@ -49,7 +47,7 @@
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="155.0" layoutY="90.0" prefHeight="80.0" prefWidth="222.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <HBox alignment="CENTER_LEFT" layoutX="155.0" layoutY="90.0" prefHeight="80.0" prefWidth="222.0" spacing="5.0" GridPane.columnIndex="1">
                <children>
                   <Label text="Last: ">
                      <padding>
@@ -61,7 +59,7 @@
                      </HBox.margin></TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <TextField fx:id="StudentIDNumberTextField" />
                </children>
@@ -69,7 +67,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="2">
+            <HBox alignment="CENTER_RIGHT" GridPane.rowIndex="1">
                <children>
                   <Label text="Student ID Number:">
                      <HBox.margin>
@@ -77,8 +75,31 @@
                      </HBox.margin>
                   </Label>
                </children>
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="70.0" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Date of Birth: ">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="277.0" layoutY="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="DOBTextField" />
+               </children>
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="20.0" />
+         </BorderPane.margin>
       </GridPane>
    </bottom>
 </BorderPane>

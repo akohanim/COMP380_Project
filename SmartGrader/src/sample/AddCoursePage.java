@@ -59,8 +59,7 @@ public class AddCoursePage {
     //set inputs that will be called back as long as input is valid
     public void AddButtonClicked(ActionEvent event) throws IOException {
         //Input Validation
-        if (CourseNameTextField.getText() == null || SectionNumberTextField.getText() == null
-                || CourseNameTextField.getText().trim().isEmpty() || SectionNumberTextField.getText().trim().isEmpty()) {
+        if (CourseNameTextField.getText().trim().isEmpty() || SectionNumberTextField.getText().trim().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input", ButtonType.OK);
             DialogPane dialogPane = alert.getDialogPane();

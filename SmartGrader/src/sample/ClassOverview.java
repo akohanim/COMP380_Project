@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,8 +20,15 @@ import java.io.IOException;
 
 public class ClassOverview {
 
+    @FXML
+    public DefaultClassOverviewPane defaultClassOverviewPaneController;
+    @FXML
+    private VBox defaultClassOverviewPane;
     //variables for main screen
-    public BorderPane mainView;
+    @FXML
+    private BorderPane mainView;
+
+
     @FXML
     private TableView tableView;
     @FXML
@@ -51,14 +59,11 @@ public class ClassOverview {
 
     public void setUsername(String username) {
         this.username = username;
+        defaultClassOverviewPaneController.setUserEmail(username);
     }
 
     public String getCourseName() {
         return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
     }
 
     //Class Overview Methods
@@ -131,13 +136,22 @@ public class ClassOverview {
 
     public void curveButtonClicked(ActionEvent event) throws IOException {
         try {
+            FXMLLoader curveLoader = new FXMLLoader(getClass().getResource("SetCurvePage.fxml"));
+            Parent root = curveLoader.load();
+            //assign curvePage controller
+            SetCurvePage curvePageController = curveLoader.getController();
             //open curve page
-            Parent root = FXMLLoader.load(getClass().getResource("SetCurvePage.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
+
+            //if they set a curve
+            if (curvePageController.isCurved()) {
+                defaultClassOverviewPaneController.fillCurveTableView(curvePageController.getCurvedResults());
+            }
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -147,13 +161,26 @@ public class ClassOverview {
 
     public void weightButtonClicked(ActionEvent event) throws IOException {
         try {
-            //open weightPage
-            Parent root = FXMLLoader.load(getClass().getResource("WeightPage.fxml"));
-            Scene scene = new Scene(root);
+            //Open up HomePage
+            FXMLLoader weightPageLoader = new FXMLLoader();
+            weightPageLoader.setLocation(getClass().getResource("WeightPage.fxml"));
+            Parent parent = weightPageLoader.load();
+            //assign weightPage
+            WeightPage weightPageController = weightPageLoader.getController();
+            //set keep Email for use in next text field
+            weightPageController.setCourseName(getCourseName());
+            weightPageController.setUserEmail(getUsername());
+            weightPageController.loadWeightsForClass();
+
+            //Change window
+            Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("SmartGrader");
             stage.setScene(scene);
             stage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -167,6 +194,8 @@ public class ClassOverview {
 
     public void setClassNameLabel(String name) {
         classNameLabel.textProperty().bind(new SimpleStringProperty("Course Name: " + name));
+        this.courseName = name;
+        defaultClassOverviewPaneController.setClassName(name);
 
     }
 

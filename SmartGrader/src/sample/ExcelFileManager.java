@@ -1,5 +1,7 @@
 package sample;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -13,14 +15,14 @@ import java.io.IOException;
 
 public class ExcelFileManager {
 
-	private File file;
+    private File file;
 
-	private Workbook workbook;
+    private Workbook workbook;
 	private Sheet sheet;
 	private Row row;
 	private Cell cell;
 
-	private XSSFWorkbook wb;
+    private XSSFWorkbook wb;
 	private XSSFSheet sh;
 	private XSSFCell XSSFcell;
 	private XSSFRow XSSFrow;
@@ -28,7 +30,7 @@ public class ExcelFileManager {
 	public ExcelFileManager(String Directory) {
 		try {
 
-			file = new File(Directory);
+            file = new File(Directory);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -120,27 +122,27 @@ public class ExcelFileManager {
 	public void create_A_New_Sheet(String sheetName) throws IOException {
 		try {
 			if (get_Total_Number_Of_Sheets() == 0) { //this over writes everything, therefore we want to run this only when there's no data in the file at all, because otherwise it will delete everything.
-				FileOutputStream fos = new FileOutputStream(file);
-				wb = new XSSFWorkbook();
-				sh = wb.createSheet(sheetName);
-				XSSFrow = sh.createRow(0);
-				XSSFcell = XSSFrow.createCell(0);
-				XSSFcell.setCellValue(" ");
-				wb.write(fos);
-				fos.close();
-			} else { //this won't run if the file is completely empty, meaning when there is not not even one sheet in the file. So, that's why we have the above code that will create the first sheet.
-				FileInputStream fis = new FileInputStream(file);
-				workbook = WorkbookFactory.create(fis);
-				sheet = workbook.createSheet(sheetName);
-				row = sheet.createRow(0);
-				cell = row.createCell(0);
-				cell.setCellValue(" ");
-				FileOutputStream fos = new FileOutputStream(file);
-				workbook.write(fos);
-				workbook.close();
-				fos.close();
-				fis.close();
-			}
+                FileOutputStream fos = new FileOutputStream(file);
+                wb = new XSSFWorkbook();
+                sh = wb.createSheet(sheetName);
+                XSSFrow = sh.createRow(0);
+                XSSFcell = XSSFrow.createCell(0);
+                XSSFcell.setCellValue(" ");
+                wb.write(fos);
+                fos.close();
+            } else { //this won't run if the file is completely empty, meaning when there is not not even one sheet in the file. So, that's why we have the above code that will create the first sheet.
+                FileInputStream fis = new FileInputStream(file);
+                workbook = WorkbookFactory.create(fis);
+                sheet = workbook.createSheet(sheetName);
+                row = sheet.createRow(0);
+                cell = row.createCell(0);
+                cell.setCellValue(" ");
+                FileOutputStream fos = new FileOutputStream(file);
+                workbook.write(fos);
+                workbook.close();
+                fos.close();
+                fis.close();
+            }
 		} catch (Exception e) {
 			System.out.println("Error at: create_A_New_Sheet(). " + sheetName + " Already Exists.");
 		}
@@ -152,17 +154,17 @@ public class ExcelFileManager {
 		} else if (does_This_Sheet_Exists(sheetCurrentName) == false) {
 			System.out.println("Invalid Sheet Name. " + sheetCurrentName + " was Not found.");
 		} else {
-			FileInputStream fis = new FileInputStream(file);
-			wb = new XSSFWorkbook(fis);
-			int SheetIndex = wb.getSheetIndex(sheetCurrentName);
-			wb.setSheetName(SheetIndex, sheetNewName);
-			FileOutputStream fos = new FileOutputStream(file);
-			wb.write(fos);
-			wb.close();
-			fis.close();
-			fos.close();
-			System.out.println(sheetCurrentName + " was sucessfully renamed to " + sheetNewName + "javafx-sdk-13.0.2/lib");
-		}
+            FileInputStream fis = new FileInputStream(file);
+            wb = new XSSFWorkbook(fis);
+            int SheetIndex = wb.getSheetIndex(sheetCurrentName);
+            wb.setSheetName(SheetIndex, sheetNewName);
+            FileOutputStream fos = new FileOutputStream(file);
+            wb.write(fos);
+            wb.close();
+            fis.close();
+            fos.close();
+            System.out.println(sheetCurrentName + " was sucessfully renamed to " + sheetNewName + ".");
+        }
 		
 	}
 	
@@ -202,18 +204,18 @@ public class ExcelFileManager {
 	public void create_A_New_Row(String sheetName) throws IOException {
 		int newRowNumber = get_Last_Row_Of_The_Sheet(sheetName) + 1;
 		try {
-			FileInputStream fis = new FileInputStream (file);
-			wb = new XSSFWorkbook(fis);
-			sh = wb.getSheet(sheetName);
-			XSSFrow = sh.createRow(newRowNumber);
-			XSSFcell = XSSFrow.createCell(0);
-			XSSFcell.setCellValue("");
-			fis.close();
-			FileOutputStream fos = new FileOutputStream (file);
-			wb.write(fos);
-			wb.close();
-			fos.close();
-		} catch (Exception e) {
+            FileInputStream fis = new FileInputStream(file);
+            wb = new XSSFWorkbook(fis);
+            sh = wb.getSheet(sheetName);
+            XSSFrow = sh.createRow(newRowNumber);
+            XSSFcell = XSSFrow.createCell(0);
+            XSSFcell.setCellValue("");
+            fis.close();
+            FileOutputStream fos = new FileOutputStream(file);
+            wb.write(fos);
+            wb.close();
+            fos.close();
+        } catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -285,26 +287,41 @@ public class ExcelFileManager {
 				FileOutputStream fos = new FileOutputStream (file);
 				workbook.write(fos);
 				workbook.close();
-				fos.close();
-				fis.close();
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
-	public void delete_This_Sheet(String sheetName) {
-		
-		try {
-			if (does_This_Sheet_Exists(sheetName) == true) {
-				FileInputStream fis = new FileInputStream (file);
-				workbook = WorkbookFactory.create(fis);
-				
-				workbook.removeSheetAt(get_Sheet_Index_For(sheetName));
-				
-				FileOutputStream fos = new FileOutputStream (file);
+                fos.close();
+                fis.close();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void delete_This_Cell(String sheetName, int rowIndex, int cellIndex) throws IOException, EncryptedDocumentException, InvalidFormatException {
+        FileInputStream fis = new FileInputStream(file);
+        workbook = WorkbookFactory.create(fis);
+        sheet = workbook.getSheet(sheetName);
+
+        row = sheet.getRow(rowIndex);
+        row.removeCell(row.getCell(cellIndex));
+
+        FileOutputStream fos = new FileOutputStream(file);
+        workbook.write(fos);
+        workbook.close();
+        fos.close();
+        fis.close();
+    }
+
+    public void delete_This_Sheet(String sheetName) {
+
+        try {
+            if (does_This_Sheet_Exists(sheetName) == true) {
+                FileInputStream fis = new FileInputStream(file);
+                workbook = WorkbookFactory.create(fis);
+
+                workbook.removeSheetAt(get_Sheet_Index_For(sheetName));
+
+                FileOutputStream fos = new FileOutputStream(file);
 				workbook.write(fos);
 				workbook.close();
 				fos.close();
@@ -316,5 +333,7 @@ public class ExcelFileManager {
 			e.printStackTrace();
 		}
 	}
+
+
 }
  

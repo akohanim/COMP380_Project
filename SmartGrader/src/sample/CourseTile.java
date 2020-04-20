@@ -70,9 +70,9 @@ public class CourseTile extends Node {
         ClassOverview classOverviewController = courseOverviewLoader.getController();
         //set keep Email for use in next text field
         classOverviewController.setUsername(getUserName());
-        classOverviewController.setCourseName(getUserName());
         classOverviewController.setClassNameLabel(getClassName());
         classOverviewController.setCourseNumberLabel(getCourseNumber());
+        classOverviewController.defaultClassOverviewPaneController.fillDefaultTableView();
 
         Scene scene = new Scene(parent);
         Stage stage = new Stage();

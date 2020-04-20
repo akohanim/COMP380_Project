@@ -3,21 +3,28 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SetCurvePage {
 
     @FXML
     private TextField SetCurveTextField;
+
+    private CurvedResults curvedResults;
+
+    private String userEmail, classname;
+
+    private boolean wantsCurve;
+
     @FXML
-    private Button SubtractButton;
-    @FXML
-    private Button AddButton;
-    @FXML
-    private Button CancelButton;
-    @FXML
-    private Button ResultsButton;
+    public void initialize() {
+        setCurve(false);
+    }
+
 
     private boolean isValidInput() {
         //make sure textfield is not empty.
@@ -63,11 +70,17 @@ public class SetCurvePage {
             if (i <= 95) {
                 SetCurveTextField.setText(Integer.toString(i + 5));
             } else {
+
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Value too high.", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                 alert.showAndWait();
+
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
             alert.showAndWait();
         }
     }
@@ -79,5 +92,54 @@ public class SetCurvePage {
     }
 
     public void clickedResults(ActionEvent event) {
+        if (isValidInput()) {
+            curvedResults = new CurvedResults(getUserEmail(), Double.parseDouble(SetCurveTextField.getText()));
+            setCurve(true);
+
+            // close window
+            clickedCancel(event);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input", ButtonType.OK);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+            alert.showAndWait();
+
+        }
+
+
     }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname;
+    }
+
+    public CurvedResults getCurvedResults() {
+        return curvedResults;
+    }
+
+    public void setCurvedResults(CurvedResults curvedResults) {
+        this.curvedResults = curvedResults;
+    }
+
+
+    public boolean isCurved() {
+        return wantsCurve;
+    }
+
+    public void setCurve(boolean wantsCurve) {
+        this.wantsCurve = wantsCurve;
+    }
+
 }
