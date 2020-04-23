@@ -6,14 +6,19 @@ import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.*;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import jdk.jfr.SettingControl;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
@@ -30,7 +35,9 @@ public class DefaultClassOverviewPane {
     public Button AddAssignmentButton;
     public VBox mainBox;
     public SwingNode theNode;
+    public GridPane theGrid;
     private String className, userEmail;
+    private JPanel panel;
 
     public String getClassName() {
         return className;
@@ -50,8 +57,20 @@ public class DefaultClassOverviewPane {
 
     @FXML
     public void initialize() throws InvocationTargetException, InterruptedException {
-        createAndSetSwingContent();
+        for (int row = 0; row < 7; row++) {
+            for (int column = 0; column < 3; column++) {
+                TextField field = new TextField();
+                field.setMaxHeight(50);
+                field.setMaxWidth(100);
+                field.setText("Hello");
+                field.setAlignment(Pos.CENTER);
+                if(row == 0){
+                    field.getStyleClass().add("custom");
+                }
+                theGrid.add(field, column, row);
 
+            }
+        }
     }
 
     public void createAndSetSwingContent() throws InvocationTargetException, InterruptedException {
@@ -108,9 +127,14 @@ public class DefaultClassOverviewPane {
             jScrollPane.revalidate();
             jScrollPane.repaint();
 
-            theNode.setContent(jScrollPane);
+            panel  = new JPanel();
+            panel.setLayout( new BorderLayout());
+            panel.add(jScrollPane, BorderLayout.CENTER);
+            panel.repaint();
+            panel.revalidate();
 
-            Platform.runLater(() -> theNode.requestFocus());
+            theNode.setContent(panel);
+
         });
 
 
