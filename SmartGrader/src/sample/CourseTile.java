@@ -72,7 +72,7 @@ public class CourseTile extends Node {
         classOverviewController.setUsername(getUserName());
         classOverviewController.setClassNameLabel(getClassName());
         classOverviewController.setCourseNumberLabel(getCourseNumber());
-        classOverviewController.defaultClassOverviewPaneController.fillDefaultTableView();
+     //   classOverviewController.defaultClassOverviewPaneController.createAndSetSwingContent();
 
         Scene scene = new Scene(parent);
         Stage stage = new Stage();

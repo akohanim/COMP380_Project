@@ -4,12 +4,7 @@
       <root url="jar://$PROJECT_DIR$/Back End Files/Libraries/commons-io-2.6/commons-io-2.6.jar!/" />
       <root url="jar://$PROJECT_DIR$/Back End Files/Libraries/commons-io-2.6/commons-io-2.6-tests.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/Back End Files/Libraries/commons-io-2.6/commons-io-2.6-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/Back End Files/Libraries/commons-io-2.6/commons-io-2.6-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Back End Files/Libraries/commons-io-2.6/commons-io-2.6-test-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

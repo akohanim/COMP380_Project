@@ -21,7 +21,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         setPrimaryStage(primaryStage);
-        Parent root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
         primaryStage.setTitle("SmartGrader");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

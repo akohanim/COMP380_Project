@@ -16,10 +16,10 @@
         <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES"/>
         <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="137.0" vgrow="SOMETIMES"/>
         <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES"/>
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0"/>
     </rowConstraints>
 
     <Label text="User Name:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -33,7 +33,7 @@
     </VBox>
     <VBox prefHeight="135.0" prefWidth="222.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
         <children>
-            <PasswordField fx:id="PasswordTextField" />
+            <PasswordField fx:id="PasswordTextField" onAction="#logInClicked"/>
             <Button fx:id="LogInButton" alignment="CENTER" onAction="#logInClicked" prefHeight="33.0" prefWidth="150.0" text="Log In">
                 <VBox.margin>
                     <Insets top="30.0" />

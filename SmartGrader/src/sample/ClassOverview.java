@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.print.PrinterException;
 import java.io.IOException;
 
 public class ClassOverview {
@@ -119,15 +119,8 @@ public class ClassOverview {
         }
     }
 
-    public void printButtonClicked(ActionEvent event) {
-        //this is a basis for printing, as long as there is data in the tableview
-        PrinterJob job = PrinterJob.createPrinterJob();
-        if (job != null) {
-            boolean success = job.printPage(tableView);
-            if (success) {
-                job.endJob();
-            }
-        }
+    public void printButtonClicked(ActionEvent event) throws PrinterException {
+        defaultClassOverviewPaneController.printTable();
     }
 
     public void deleteButtonClicked(ActionEvent event) {

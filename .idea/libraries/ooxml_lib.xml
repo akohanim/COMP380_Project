@@ -1,18 +1,7 @@
 <component name="libraryTable">
   <library name="ooxml-lib">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/poi-examples-3.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/poi-ooxml-3.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/poi-scratchpad-3.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/poi-ooxml-schemas-3.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/xmlbeans-2.6.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/poi-excelant-3.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/poi-3.15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/SmartGrader/poi-3.15/ooxml-lib/curvesapi-1.04.jar!/" />
-      <root url="file://$PROJECT_DIR$/SmartGrader/poi-3.15/lib" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/SmartGrader/poi-3.15/lib" recursive="false" />
   </library>
 </component>
