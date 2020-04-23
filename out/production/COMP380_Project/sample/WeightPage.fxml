@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../TealTeam.css"
+            xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.WeightPage">
+   <top>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-size: 25;" text="Weights">
+               <HBox.margin>
+                  <Insets bottom="15.0" top="15.0"/>
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="175.0" prefWidth="600.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+               <children>
+                  <Label text="Quizzes:"/>
+                  <Label text="Homework:"/>
+                  <Label text="Projects:"/>
+                  <Label text="Exams:"/>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+               <children>
+                  <TextField fx:id="QuizWeightTextField" onKeyTyped="#addTextFields" text="25"/>
+                  <TextField fx:id="HomeworkWeightTextField" onKeyTyped="#addTextFields" text="25"/>
+                  <TextField fx:id="ProjectWeightTextField" layoutX="10.0" layoutY="10.0" onKeyTyped="#addTextFields"
+                             text="25"/>
+                  <TextField fx:id="ExamWeightTextField" layoutX="10.0" layoutY="35.0" onKeyTyped="#addTextFields"
+                             text="25"/>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER" prefHeight="69.0" prefWidth="600.0" spacing="15.0">
+         <children>
+            <Label fx:id="TotalPercentageLabel" text="Total Percentage: 100 %"/>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0" spacing="100.0">
+               <children>
+                  <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#clickedCancel" text="Cancel"/>
+                  <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#clickedSave" text="Save"/>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0"/>
+               </VBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="15.0"/>
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+</BorderPane>
