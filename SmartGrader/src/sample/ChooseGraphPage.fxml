@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="30.0" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChooseGraphPage">
+   <children>
+      <Label text="Data Visualization" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+         <children>
+            <Button fx:id="pieChartButton" mnemonicParsing="false" onAction="#clickedPieChartButton">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../thumbnails/PieChartIcon.png" />
+                     </image></ImageView>
+               </graphic></Button>
+            <Button fx:id="barChartButton" mnemonicParsing="false" onAction="#clickedBarChartButton">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../thumbnails/BarChartIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <Label text="Grade Breakdown of:" />
+            <RadioButton fx:id="totalGradeRadioButton" mnemonicParsing="false" selected="true" text="Total Grade">
+               <toggleGroup>
+                  <ToggleGroup fx:id="GradeSelectionToggle" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="QuizRadioButton" mnemonicParsing="false" text="Quiz" toggleGroup="$GradeSelectionToggle" />
+            <RadioButton fx:id="homeworkRadioButton" mnemonicParsing="false" text="Homework" toggleGroup="$GradeSelectionToggle" />
+            <RadioButton fx:id="ProjectsRadioButton" mnemonicParsing="false" text="Projects" toggleGroup="$GradeSelectionToggle" />
+            <RadioButton fx:id="ExamRadioButton" mnemonicParsing="false" text="Exam" toggleGroup="$GradeSelectionToggle" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label text="Grade Range:" />
+            <Label text="F: 0 to" />
+            <TextField fx:id="fGradeMinTextfield" prefWidth="75.0" text="59" />
+            <Label layoutX="10.0" layoutY="10.0" text="to D:" />
+            <TextField fx:id="DGradeMinTextfield" layoutX="38.0" layoutY="10.0" prefWidth="75.0" text="60" />
+            <Label layoutX="10.0" layoutY="10.0" text="to C:" />
+            <TextField fx:id="CGradeMinTextfield" layoutX="38.0" layoutY="10.0" prefWidth="75.0" text="70" />
+            <Label layoutX="187.0" layoutY="10.0" text="to B:" />
+            <TextField fx:id="BfGradeMinTextfield" layoutX="215.0" layoutY="10.0" prefWidth="75.0" text="80" />
+            <Label layoutX="10.0" layoutY="10.0" text="to A: " />
+            <TextField fx:id="AGradeMinTextfield" layoutX="20.0" layoutY="10.0" prefWidth="75.0" text="90" />
+            <Label text="to 100" />
+         </children></HBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#clickedCancelButton" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+</VBox>

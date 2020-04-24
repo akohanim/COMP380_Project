@@ -17,7 +17,10 @@
      -fx-border-color: black;*/
 
 }
-
+.radio-button{
+    -fx-font-size: 15;
+    -fx-text-fill: white;
+}
 .button:hover {
     -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-text-fill: -fx-text-base-color;
@@ -28,6 +31,8 @@
 .text-field {
     -fx-background-color: #DDEDEF;
     -fx-text-fill: #383838;
+    -fx-border-radius: 0;
+
 }
 
 .password-field {
@@ -68,10 +73,17 @@
     -fx-text-alignment: center;
 }
 
-.custom{
+.customTableHeader{
     -fx-background-color: teal;
     -fx-text-fill: aliceblue;
     -fx-border-radius: 0;
     -fx-text-alignment: center;
+}
+.customTableButton{
+    -fx-background-color: darkred;
+    -fx-background-radius: 0;
+    -fx-font-size: 12;
+    -fx-text-fill: aliceblue;
+    -fx-background-size: cover;
 }
 

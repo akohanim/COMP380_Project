@@ -180,8 +180,21 @@ public class ClassOverview {
 
     }
 
-    public void graphButtonClicked(ActionEvent event) {
-        //TODO create graph window and figure out functionality
+    public void graphButtonClicked(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader graphPageLoader = new FXMLLoader(getClass().getResource("ChooseGraphPage.fxml"));
+            Parent root = graphPageLoader.load();
+            //assign curvePage controller
+            ChooseGraphPage chooseGraphPage = graphPageLoader.getController();
+            //open curve page
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

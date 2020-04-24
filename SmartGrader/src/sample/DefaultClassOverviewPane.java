@@ -26,6 +26,7 @@ import java.awt.*;
 import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 
 
 public class DefaultClassOverviewPane {
@@ -57,21 +58,58 @@ public class DefaultClassOverviewPane {
 
     @FXML
     public void initialize() throws InvocationTargetException, InterruptedException {
-        for (int row = 0; row < 7; row++) {
-            for (int column = 0; column < 3; column++) {
+
+        String[][] numbers = {{"First Name","Last Name","Student ID", "Overall Grade", "assignment 1", "Assignment 2"},
+                                {"Jake", "smith", "5232","50","5", "10"},
+                {"Eric", "Test", "1234","100","10", "20"},
+                {"Tom", "Jones", "8532","70","6", "13"}};
+
+        for (int row = 0; row < numbers.length; row++) {
+            for (int col = 0; col < numbers[row].length; col++) {
+                //create textfield
                 TextField field = new TextField();
                 field.setMaxHeight(50);
                 field.setMaxWidth(100);
-                field.setText("Hello");
+                field.setStyle("-fx-border-width: 5");
+                field.setText(numbers[row][col]);
+
+
+                //style cells appropriately
                 field.setAlignment(Pos.CENTER);
-                if(row == 0){
-                    field.getStyleClass().add("custom");
+                if (row % 2 == 0 && row != 0){
+                    field.setStyle("-fx-background-color: white");
+                } else if (row != 0){
+                    field.setStyle("-fx-background-color: lightgray");
                 }
-                theGrid.add(field, column, row);
+                if(row == 0){
+                    field.setDisable(true);
+                    field.setStyle("-fx-opacity: 1;");
+                    field.getStyleClass().add("custom");
+
+                }
+                //add to grill
+                theGrid.add(field, col, row);
+
+                if (row == numbers.length - 1 && col > 3){
+                    Button button = new Button("Delete");
+                    button.setMaxSize(100,200);
+                    button.getStyleClass().add("customTableButton");
+                    theGrid.add(button, col,row +1 );
+                }
+
+                if (col == numbers[row].length -1 && row != 0){
+                    Button button = new Button("Edit Student");
+                    button.getStyleClass().add("customTableButton");
+                    theGrid.add(button, col+1 ,row );
+                }
 
             }
         }
+
     }
+
+
+
 
     public void createAndSetSwingContent() throws InvocationTargetException, InterruptedException {
         SwingUtilities.invokeAndWait(() -> {
