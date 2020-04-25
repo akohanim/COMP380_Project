@@ -66,11 +66,12 @@ public class WeightPage {
 
 
     public void loadWeightsForClass() throws IOException {
+        //TODO for some reason, load weight always returns empty string ""
         try {
             Weights weights = new Weights(getUserEmail());
 
             //Make sure weights exist before entering default weights
-            if (!weights.load_Weight_Percentage(getCourseName(), "Quiz").equals(getUserEmail() + " does not exists.")) {
+            if (weights.does_this_Weight_Exists(getCourseName(), "Quiz")) {
 
                 //fill all weights with stored data
                 QuizWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Quiz"));
