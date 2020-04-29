@@ -8,6 +8,7 @@ public class Weights {
 	
 	public Weights(String userEmail) {
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
+		
 	}
 	
 	private int get_Cell_Of_This_Weight(String courseName, String weightName) throws IOException {
@@ -67,5 +68,37 @@ public class Weights {
 	public String load_Weight_Percentage(String courseName, String weightName) throws IOException {
 		int weightCell = get_Cell_Of_This_Weight(courseName, weightName);
 		return userFile.get_Data_At(courseName, 2, weightCell);
+	}
+	
+	public boolean is_Using_Weights_On(String courseName) {
+		boolean weightsOnOrOff = false;
+		
+		try {
+			weightsOnOrOff = Boolean.parseBoolean(userFile.get_Data_At(courseName, 2, 4));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return weightsOnOrOff;
+	}
+	
+	public void set_Using_Weights_On_Or_Off(String courseName, String OnOrOff) {
+		if (OnOrOff.equalsIgnoreCase("On")) {
+			
+			try {
+				userFile.update_Cell("true", courseName, 2, 4);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		} else if (OnOrOff.equalsIgnoreCase("Off")){
+			
+			try {
+				userFile.update_Cell("false", courseName, 2, 4);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 }

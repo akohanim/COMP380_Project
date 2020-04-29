@@ -32,6 +32,8 @@ public class Grading {
 	private int gradeRangeForD;
 	private int gradeRangeForF;
 	
+	private boolean useTheWeights;
+	
 	public Grading(String userEmail) {
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
 	}
@@ -43,6 +45,8 @@ public class Grading {
 			homeworksWeight = Double.parseDouble(userFile.get_Data_At(courseName, 2, 1))/100;
 			examsWeight = Double.parseDouble(userFile.get_Data_At(courseName, 2, 2))/100;
 			projectsWeight = Double.parseDouble(userFile.get_Data_At(courseName, 2, 3))/100;
+			
+			useTheWeights = Boolean.parseBoolean(userFile.get_Data_At(courseName, 2, 4));
 			
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
@@ -99,28 +103,45 @@ public class Grading {
 	}
 	
 	private void calculate_Student_Overall_Percentage_For_Each_Category() {
-		
+
+
 		if (totalCourseQuizesPoints == 0) {//Can't divide by 0 so we need to change it to 1.
 			totalCourseQuizesPoints = 1;
+			studentTotalQuizesPercentage = (studentTotalQuizesPoints / totalCourseQuizesPoints) * 100;
+			totalCourseQuizesPoints = 0;
+			
+		} else {
+			studentTotalQuizesPercentage = (studentTotalQuizesPoints / totalCourseQuizesPoints) * 100;
 		}
 		
 		if (totalCourseHomeworksPoints == 0) {//Can't divide by 0 so we need to change it to 1.
 			totalCourseHomeworksPoints = 1;
+			studentTotalHomeworksPercentage = (studentTotalHomeworksPoints / totalCourseHomeworksPoints) * 100;
+			totalCourseHomeworksPoints = 0;
+
+		} else {
+			studentTotalHomeworksPercentage = (studentTotalHomeworksPoints / totalCourseHomeworksPoints) * 100;
 		}
 		
-		if(totalCourseExamsPoints == 0) {//Can't divide by 0 so we need to change it to 1.
+		if (totalCourseExamsPoints == 0) {//Can't divide by 0 so we need to change it to 1.
 			totalCourseExamsPoints = 1;
+			studentTotalExamsPercentage = (studentTotalExamsPoints / totalCourseExamsPoints) * 100;	
+			totalCourseExamsPoints = 0;
+
+		} else {
+			studentTotalExamsPercentage = (studentTotalExamsPoints / totalCourseExamsPoints) * 100;	
 		}
 		
 		if (totalCourseProjectsPoints == 0) {//Can't divide by 0 so we need to change it to 1.
+
 			totalCourseProjectsPoints = 1;
+			studentTotalProjectsPercentage = (studentTotalProjectsPoints / totalCourseProjectsPoints) * 100;
+			totalCourseProjectsPoints = 0;
+
+		} else {
+			studentTotalProjectsPercentage = (studentTotalProjectsPoints / totalCourseProjectsPoints) * 100;
 		}
 		
-		studentTotalQuizesPercentage = (studentTotalQuizesPoints / totalCourseQuizesPoints) * 100;
-		studentTotalHomeworksPercentage = (studentTotalHomeworksPoints / totalCourseHomeworksPoints) * 100;
-		studentTotalExamsPercentage = (studentTotalExamsPoints / totalCourseExamsPoints) * 100;	
-		studentTotalProjectsPercentage = (studentTotalProjectsPoints / totalCourseProjectsPoints) * 100;
-
 	}
 	
 	private void count_Total_Number_Of_As_Bs_Cs_Ds_And_Fs(String courseName) {
@@ -152,8 +173,13 @@ public class Grading {
 		calculate_Student_Overall_Percentage_For_Each_Category();
 		
 		DecimalFormat decimalFormat = new DecimalFormat("0.00");
-		double studentOverallGrade = (studentTotalQuizesPercentage * quizesWeight) + (studentTotalHomeworksPercentage * homeworksWeight) + (studentTotalExamsPercentage * examsWeight) + (studentTotalProjectsPercentage * projectsWeight);
-		
+		double studentOverallGrade = 0;
+
+		if (useTheWeights == false) {
+			studentOverallGrade = ((studentTotalExamsPoints + studentTotalHomeworksPoints + studentTotalProjectsPoints + studentTotalQuizesPoints) / (totalCourseExamsPoints + totalCourseHomeworksPoints + totalCourseProjectsPoints + totalCourseQuizesPoints)) * 100;
+		} else {
+			studentOverallGrade = (studentTotalQuizesPercentage * quizesWeight) + (studentTotalHomeworksPercentage * homeworksWeight) + (studentTotalExamsPercentage * examsWeight) + (studentTotalProjectsPercentage * projectsWeight);
+		}
 		String studentOverallGradeFormated = decimalFormat.format(studentOverallGrade);
 		
 		try {

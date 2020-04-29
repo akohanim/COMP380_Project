@@ -57,6 +57,8 @@ public class CreateCourse {
 			userFile.update_Cell("25", courseName, 2, 1);
 			userFile.update_Cell("25", courseName, 2, 2);
 			userFile.update_Cell("25", courseName, 2, 3);
+			
+			userFile.update_Cell("false", courseName, 2, 4);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
