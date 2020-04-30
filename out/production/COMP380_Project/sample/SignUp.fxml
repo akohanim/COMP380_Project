@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< Updated upstream
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+=======
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+>>>>>>> Stashed changes
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUp">
     <columnConstraints>
         <ColumnConstraints maxWidth="160.0" minWidth="23.0" prefWidth="31.0" />
@@ -27,11 +34,16 @@
     <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
         <children>
 
+<<<<<<< Updated upstream
             <Label text="Last Name:"/>
+=======
+            <Label text="Last Name:" />
+>>>>>>> Stashed changes
         </children>
     </VBox>
     <VBox prefHeight="87.0" prefWidth="188.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
         <children>
+<<<<<<< Updated upstream
             <TextField fx:id="LastNameTextField"/>
         </children>
     </VBox>
@@ -51,6 +63,23 @@
             <TextField fx:id="EmailTextField"/>
         </children>
     </VBox>
+=======
+            <TextField fx:id="LastNameTextField" />
+        </children>
+    </VBox>
+    <Button fx:id="LogInButton" onAction="#loginClicked" prefHeight="33.0" prefWidth="150.0" styleClass="button" text="Log In" GridPane.columnIndex="2" GridPane.rowIndex="5">
+      <GridPane.margin>
+         <Insets bottom="40.0" top="40.0" />
+      </GridPane.margin></Button>
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="4">
+        <children>
+            <PasswordField fx:id="PasswordTextField" />
+        </children></VBox>
+    <VBox GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <children>
+            <TextField fx:id="EmailTextField" />
+        </children></VBox>
+>>>>>>> Stashed changes
     <VBox GridPane.columnIndex="1" GridPane.rowIndex="3">
         <children>
             <Label text="Email:" />
