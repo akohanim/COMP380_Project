@@ -72,7 +72,10 @@
 .text-area{
     -fx-text-alignment: center;
 }
-
+.check-box{
+    -fx-font-size: 17;
+    -fx-text-fill: #394B4C;
+}
 .customTableHeader{
     -fx-background-color: teal;
     -fx-text-fill: aliceblue;

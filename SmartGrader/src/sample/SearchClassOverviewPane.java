@@ -30,6 +30,9 @@ public class SearchClassOverviewPane {
     private Button xButtton;
     @FXML
     private TableView resultsTable;
+    private String courseName, userName;
+
+
 
     //search class Methods
     public void clickedSearchStudent(ActionEvent event) {
@@ -52,6 +55,14 @@ public class SearchClassOverviewPane {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DefaultClassOverviewPane.fxml"));
             mainView.getChildren().clear();
             mainView.setCenter(loader.load());
+            DefaultClassOverviewPane defaultClassOverviewPaneController = loader.getController();
+            defaultClassOverviewPaneController.setClassName(getCourseName());
+            defaultClassOverviewPaneController.setUserEmail(getUserName());
+            //fill table and transfer it back
+            LoadCourseData loadCourseData = new LoadCourseData(getUserName());
+            String[][] data = loadCourseData.get_2D_Array_Loaded_With_The_Course_Data(getCourseName());
+            defaultClassOverviewPaneController.fillGrid(data,true);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,4 +73,19 @@ public class SearchClassOverviewPane {
         this.mainView = mainView;
     }
 
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

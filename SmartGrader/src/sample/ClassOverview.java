@@ -82,17 +82,29 @@ public class ClassOverview {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchClassOverviewPane.fxml"));
             mainView.getChildren().clear();
             mainView.setCenter(loader.load());
-
             //use any functions in searchClassOverviewPane controller
-            SearchClassOverviewPane SearchController = loader.getController();
-            SearchController.setBorderPane(mainView);
+            SearchClassOverviewPane searchController = loader.getController();
+            searchController.setCourseName(getCourseName());
+            searchController.setUserName(getUsername());
+            searchController.setBorderPane(mainView);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void printButtonClicked(ActionEvent event) throws PrinterException {
-        defaultClassOverviewPaneController.printTable();
+    public void printButtonClicked(ActionEvent event) throws IOException {
+        FXMLLoader printLoader = new FXMLLoader(getClass().getResource("PrintPopUp.fxml"));
+        Parent root = printLoader.load();
+        //intiialize vairable in popup
+        PrintPopUp printPopUpController = printLoader.getController();
+        printPopUpController.setCourseName(getCourseName());
+        printPopUpController.setUserName(getUsername());
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
     public void curveButtonClicked(ActionEvent event) throws IOException {

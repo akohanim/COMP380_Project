@@ -150,8 +150,8 @@ public class DefaultClassOverviewPane {
             for (int col = 0; col < data[row].length; col++) {
                 //create textfield
                 TextField field = new TextField();
-                field.setMaxHeight(50);
-                field.setMaxWidth(100);
+                field.setPrefHeight(Control.USE_COMPUTED_SIZE);
+                field.setMaxWidth(Control.USE_COMPUTED_SIZE);
                 field.setStyle("-fx-border-width: 5");
                 field.setText(data[row][col]);
 
@@ -281,38 +281,6 @@ public class DefaultClassOverviewPane {
             }
         }
 
-    }
-
-    public void printTable() throws PrinterException {
-        Printer printer = Printer.getDefaultPrinter();
-        PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
-
-        // Get the print page size:
-        final double  prnW = pageLayout.getPrintableWidth();
-        final double  prnH = pageLayout.getPrintableHeight();
-
-        // Work out how many pages across and down are needed (This code may not work?):
-        final int  pagesAcross = (int) Math.ceil( theGrid.getWidth() / prnW );
-        final int  pagesDown = (int) Math.ceil( theGrid.getHeight() / prnH );
-
-        /* Print pages down and then across like so:
-           1    3
-           2    4
-        */
-        PrinterJob job = PrinterJob.createPrinterJob();
-        for (int pgCol = 0; pgCol < pagesAcross; pgCol++ )
-        {
-            for ( int pgRow = 0; pgRow < pagesDown; pgRow++ )
-            {
-                theGrid.setTranslateX( -(prnW * pgCol) );
-                theGrid.setTranslateY( -(prnH * pgRow) );
-                job.printPage( pageLayout, theGrid );
-            }
-        }
-
-        job.endJob();
-
-        refreshTable();
     }
 
     private void refreshTable(){

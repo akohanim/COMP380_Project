@@ -18,6 +18,7 @@ public class WeightPage {
     public Label TotalPercentageLabel;
     public Button CancelButton;
     public Button SaveButton;
+    public CheckBox weightCheckbox;
 
     private String userEmail, courseName;
 
@@ -32,6 +33,12 @@ public class WeightPage {
                 weights.edit_Weight(getCourseName(), "Exam", ExamWeightTextField.getText());
                 weights.edit_Weight(getCourseName(), "Projects", ProjectWeightTextField.getText());
 
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Weights have been saved.", ButtonType.OK);
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+                alert.showAndWait();
+
+                clickedCancel(event);
             } else {
                 //Show a message that percentage is not 100
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Percentage must equal 100.", ButtonType.OK);
@@ -66,23 +73,36 @@ public class WeightPage {
 
 
     public void loadWeightsForClass() throws IOException {
-        try {
-            Weights weights = new Weights(getUserEmail());
-            //Make sure weights exist before entering default weights
-            if (weights.does_this_Weight_Exists(getCourseName(), "Quiz")) {
+        Weights weights = new Weights(getUserEmail());
+        if (weights.is_Using_Weights_On(getCourseName()) == true) {
+            try {
+                //Make sure weights exist before entering default weights
+                if (weights.does_this_Weight_Exists(getCourseName(), "Quiz")) {
 
-                //fill all weights with stored data
-                QuizWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Quiz"));
-                HomeworkWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Homework"));
-                ExamWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Exam"));
-                ProjectWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Projects"));
+                    //fill all weights with stored data
+                    QuizWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Quiz"));
+                    HomeworkWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Homework"));
+                    ExamWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Exam"));
+                    ProjectWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Projects"));
 
-                TotalPercentageLabel.setText("Total Percentage: " + weights.get_Total_Weight_Percentage(getCourseName()) + " %");
+                    TotalPercentageLabel.setText("Total Percentage: " + weights.get_Total_Weight_Percentage(getCourseName()) + " %");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
+
+
+    public void checkboxChecked(ActionEvent actionEvent) {
+        Weights weights = new Weights(getUserEmail());
+        if (weightCheckbox.isSelected()){
+            weights.set_Using_Weights_On_Or_Off(getCourseName(),"On" );
+        } else {
+            weights.set_Using_Weights_On_Or_Off(getCourseName(),"Off" );
+        }
+    }
+
 
     public String getUserEmail() {
         return userEmail;
@@ -99,6 +119,7 @@ public class WeightPage {
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
+
 
 }
 
