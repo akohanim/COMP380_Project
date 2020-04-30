@@ -14,10 +14,9 @@ public class Assignments {
 	private void shift_Columns(String courseName, int rowIndex, int cellIndex) throws IOException, EncryptedDocumentException, InvalidFormatException {
 		int lastCellInThisRow = userFile.get_Last_Cell_Of_Row(courseName, rowIndex);
 		for (int i = cellIndex; i <= lastCellInThisRow - 1; i++) {
-			System.out.println("Last cell in the row is: " + lastCellInThisRow);
 			String nextColumnData = userFile.get_Data_At(courseName, rowIndex, i + 1);
 			userFile.update_Cell(nextColumnData, courseName, rowIndex, i);
-			if (i + 1 == lastCellInThisRow - 1) {
+			if (i + 1 == lastCellInThisRow) {
 				userFile.delete_This_Cell(courseName, rowIndex, lastCellInThisRow - 1);
 			}
  		}
@@ -59,7 +58,6 @@ public class Assignments {
 	public void delete_Assignment(String courseName, int cellNumber) throws IOException, EncryptedDocumentException, InvalidFormatException {
 		int lastRowInTheFile = userFile.get_Last_Row_Of_The_Sheet(courseName);
 		for (int i = 5; i <= lastRowInTheFile; i++) {//Row 5 is where the Assignment type starts.
-			System.out.println("current row is: " + i);
 			shift_Columns(courseName, i, cellNumber);
 		}
 	}
