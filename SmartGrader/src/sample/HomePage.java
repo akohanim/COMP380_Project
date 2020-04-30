@@ -34,14 +34,6 @@ public class HomePage {
     //all methods and listeners can be written in the initialize method
     @FXML
     public void initialize() throws IOException {
-        //set Window to full screen
-        /*
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());*/
     }
 
     public void start(Stage window) throws Exception {
@@ -130,6 +122,7 @@ public class HomePage {
                     stage.showAndWait();
 
                     fillClassTiles(username);
+                    moveAddButtonToEnd();
 
                 } catch (IOException ex) {
                     ex.printStackTrace();

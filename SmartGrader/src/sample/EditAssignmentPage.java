@@ -41,6 +41,8 @@ public class EditAssignmentPage {
                 DialogPane dialogPane = alert.getDialogPane();
                 dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
                 alert.showAndWait();
+
+                clickedCancel(actionEvent);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,12 +61,12 @@ public class EditAssignmentPage {
     public void clickedDelete(ActionEvent actionEvent) throws IOException, InvalidFormatException {
         try {
             Assignments assignments = new Assignments(getUserEmail());
-            assignments.delete_Assignment(getCourseName(), (getColumnNumber()+1));
+            assignments.delete_Assignment(getCourseName(), getColumnNumber()+1);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Student has been Deleted.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Assignment has been Deleted.", ButtonType.OK);
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
-            alert.showAndWait();
+            alert.show();
 
             clickedCancel(actionEvent);
         } catch (IOException e) {

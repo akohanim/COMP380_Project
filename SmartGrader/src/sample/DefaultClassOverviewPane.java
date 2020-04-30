@@ -64,8 +64,8 @@ public class DefaultClassOverviewPane {
 
     @FXML
     public void initialize() throws InvocationTargetException, InterruptedException {
-        String[][] data = {{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"}};
-        fillGrid(data, true);
+        // String[][] data = {{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"}};
+        // fillGrid(data, true);
     }
 
     public void clickedAddStudent(ActionEvent event) throws IOException {
@@ -91,7 +91,7 @@ public class DefaultClassOverviewPane {
             stage.setScene(scene);
             stage.showAndWait();
 
-            //TODO Refresh table when Student is added
+            refreshTable();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,34 +118,34 @@ public class DefaultClassOverviewPane {
             stage.setScene(scene);
             stage.showAndWait();
 
-            //TODO Refresh table when Assignment is added
+            refreshTable();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void fillCurveTableView(CurvedResults curvedResults) throws IOException {
+    public void fillCurveTableView(Double curve) throws IOException {
+        CurvedResults curvedResults = new CurvedResults(getUserEmail(), curve);
         boolean withbuttons = false;
-        String[][] data = new String[curvedResults.get_Last_Row(getClassName())-8][];
-        for (int row = 8; row < curvedResults.get_Last_Row(getClassName()); row++){
-            //set header for graph
-            if (row == 8){
-                data[0][0] = "Full Name";
-                data[0][1] = "Student Id";
-                data[0][2] = "Overall Grade";
-                data[0][3] = "Curved Grade";
-            } else {
-                data[row - 8][0] = (curvedResults.get_Student_First_Name(getClassName(), row) + " " + curvedResults.get_Student_Last_Name(getClassName(), row));
-                data[row - 8][1] = (curvedResults.get_Student_Id_Number(getClassName(), row));
-                data[row - 8][2] = (curvedResults.get_Student_Overall_Grade(getClassName(), row));
-                data[row - 8][3] = String.valueOf((curvedResults.get_Student_Curved_Grade(getClassName(), row)));
-            }
+        String[][] data = new String[curvedResults.get_Last_Row(getClassName())-6][4];
+        data[0][0] = "Full Name";
+        data[0][1] = "Student Id";
+        data[0][2] = "Overall Grade";
+        data[0][3] = "Curved Grade";
+        for (int excelrow = 8, arrayRow = 1; excelrow <= curvedResults.get_Last_Row(getClassName()); excelrow++, arrayRow++){
+            //fill table
+            data[arrayRow][0] = (curvedResults.get_Student_First_Name(getClassName(), excelrow) + " " + curvedResults.get_Student_Last_Name(getClassName(), excelrow));
+            data[arrayRow][1] = (curvedResults.get_Student_Id_Number(getClassName(), excelrow));
+            data[arrayRow][2] = (curvedResults.get_Student_Overall_Grade(getClassName(), excelrow));
+            data[arrayRow][3] = String.valueOf((curvedResults.get_Student_Curved_Grade(getClassName(), excelrow)));
         }
 
         fillGrid(data , withbuttons);
     }
 
-    private void fillGrid(String[][] data, boolean withbuttons) {
+    public void fillGrid(String[][] data, boolean withbuttons) {
+        theGrid.getChildren().clear();
+
         for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data[row].length; col++) {
                 //create textfield
@@ -154,7 +154,6 @@ public class DefaultClassOverviewPane {
                 field.setMaxWidth(100);
                 field.setStyle("-fx-border-width: 5");
                 field.setText(data[row][col]);
-
 
                 //style cells appropriately
                 field.setAlignment(Pos.CENTER);
@@ -169,6 +168,40 @@ public class DefaultClassOverviewPane {
                     field.getStyleClass().add("custom");
 
                 }
+
+                //create listener for textfields
+                if (col >3 && row > 0){
+                    int finalRow1 = row;
+                    int finalCol1 = col;
+                    field.setOnAction(e->{
+                        //check for integer
+                        if (field.getText().matches("-?(0|[1-9]\\d*)")){
+                            //change grade
+                            sample.Grading grading = new sample.Grading(getUserEmail());
+
+                            grading.update_The_Grade(getClassName(),Integer.parseInt(field.getText()), finalRow1+ 7, finalCol1+1);
+
+                            grading.calculate_The_Overall_Grade(getClassName(),finalRow1+7);
+                            //refill table
+                            refreshTable();
+                        } else {
+                            //Not an integer
+                            Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input.", ButtonType.OK);
+                            DialogPane dialogPane = alert.getDialogPane();
+                            dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+                            alert.showAndWait();
+
+                            refreshTable();
+                        }
+
+
+                        //
+                    });
+                }
+
+
+
+
                 //add to grid
                 theGrid.add(field, col, row);
 
@@ -178,8 +211,11 @@ public class DefaultClassOverviewPane {
                     button.getStyleClass().add("customTableButton");
 
                     int finalCol = col;
+                    //add listeners to edit assignment Button
                     button.setOnAction(e ->{
                         try {
+
+                            //TODO fix delete
                             //open up the edit assignment page
                             FXMLLoader editAssignmentLoader = new FXMLLoader();
                             editAssignmentLoader.setLocation(getClass().getResource("EditAssignmentPage.fxml"));
@@ -199,7 +235,8 @@ public class DefaultClassOverviewPane {
                             stage.setScene(scene);
                             stage.showAndWait();
 
-                            //TODO Refresh table after
+                            refreshTable();
+
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }
@@ -214,7 +251,7 @@ public class DefaultClassOverviewPane {
                     int finalRow = row;
                     button.setOnAction(e ->{
 
-                        try {//TODO Edit Student Setup launch controller
+                        try {
                             //Load FXML for editStudentPage
                             FXMLLoader editStudentLoader = new FXMLLoader();
                             editStudentLoader.setLocation(getClass().getResource("EditStudentPage.fxml"));
@@ -232,6 +269,8 @@ public class DefaultClassOverviewPane {
                             stage.setTitle("SmartGrader");
                             stage.setScene(scene);
                             stage.showAndWait();
+
+                            refreshTable();
 
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
@@ -273,9 +312,19 @@ public class DefaultClassOverviewPane {
 
         job.endJob();
 
-        //TODO after printjob, clearview and fill view all over again
+        refreshTable();
+    }
 
+    private void refreshTable(){
+        //clear table
+        theGrid.getChildren().clear();
+        //reset the table
+        LoadCourseData loadCourseData = new LoadCourseData(getUserEmail());
+        String[][] updatedData =loadCourseData.get_2D_Array_Loaded_With_The_Course_Data(getClassName());
+        fillGrid(updatedData,true);
+    }
 
-
+    public void clickedRefresh(ActionEvent actionEvent) {
+        refreshTable();
     }
 }

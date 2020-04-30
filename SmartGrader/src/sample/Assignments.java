@@ -1,12 +1,11 @@
 package sample;
+import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import java.io.IOException;
-
 public class Assignments {
-    private final ExcelFileManager userFile;
+    private ExcelFileManager userFile;
 
     public Assignments(String userEmail) {
         userFile = new ExcelFileManager(userEmail + ".xlsx");
@@ -14,7 +13,8 @@ public class Assignments {
 
     private void shift_Columns(String courseName, int rowIndex, int cellIndex) throws IOException, EncryptedDocumentException, InvalidFormatException {
         int lastCellInThisRow = userFile.get_Last_Cell_Of_Row(courseName, rowIndex);
-        for (int i = cellIndex; i < lastCellInThisRow - 1; i++) {
+        for (int i = cellIndex; i <= lastCellInThisRow - 1; i++) {
+            System.out.println("Last cell in the row is: " + lastCellInThisRow);
             String nextColumnData = userFile.get_Data_At(courseName, rowIndex, i + 1);
             userFile.update_Cell(nextColumnData, courseName, rowIndex, i);
             if (i + 1 == lastCellInThisRow - 1) {
@@ -50,11 +50,16 @@ public class Assignments {
         userFile.update_Cell(type, courseName, 5, lastCellInTheRowOfAssignments);
         userFile.update_Cell(assignmentName, courseName, 6, lastCellInTheRowOfAssignments);
         userFile.update_Cell(points, courseName, 7, lastCellInTheRowOfAssignments);
+
+        for(int currentRow = 8; currentRow < userFile.get_Last_Row_Of_The_Sheet(courseName); currentRow++) {
+            userFile.update_Cell("0", courseName, currentRow, lastCellInTheRowOfAssignments);
+        }
     }
 
     public void delete_Assignment(String courseName, int cellNumber) throws IOException, EncryptedDocumentException, InvalidFormatException {
         int lastRowInTheFile = userFile.get_Last_Row_Of_The_Sheet(courseName);
-        for (int i = 5; i < lastRowInTheFile; i++) {//Row 5 is where the Assignment type starts.
+        for (int i = 5; i <= lastRowInTheFile; i++) {//Row 5 is where the Assignment type starts.
+            System.out.println("current row is: " + i);
             shift_Columns(courseName, i, cellNumber);
         }
     }

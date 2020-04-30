@@ -22,34 +22,11 @@ public class ClassOverview {
 
     @FXML
     public DefaultClassOverviewPane defaultClassOverviewPaneController;
-    @FXML
-    private VBox defaultClassOverviewPane;
     //variables for main screen
     @FXML
     private BorderPane mainView;
-
-
-    @FXML
-    private TableView tableView;
-    @FXML
-    private Button GraphButton;
-    @FXML
-    private Button WeightButton;
-    @FXML
-    private Button CurveButton;
-    @FXML
-    private Button PrintButton;
-    @FXML
-    private Button DeleteButton;
-    @FXML
-    private Button SaveButton;
-    @FXML
-    private Button SearchButton;
-    @FXML
-    private Button HomeButton;
     @FXML
     private Label classNameLabel, courseNumberLabel;
-
 
     private String username, courseName;
 
@@ -66,7 +43,7 @@ public class ClassOverview {
         return courseName;
     }
 
-    //Class Overview Methods
+
     @FXML
     public void initialize() {
     }
@@ -99,11 +76,6 @@ public class ClassOverview {
         }
     }
 
-
-    public void saveButtonClicked(ActionEvent event) {
-        //Might be redundant if we make the table save as you edit it
-    }
-
     public void searchButtonClicked(ActionEvent event) throws IOException {
         // switch main view to search view
         try {
@@ -123,10 +95,6 @@ public class ClassOverview {
         defaultClassOverviewPaneController.printTable();
     }
 
-    public void deleteButtonClicked(ActionEvent event) {
-        //TODO highlight row or column in table view then delete the contents
-    }
-
     public void curveButtonClicked(ActionEvent event) throws IOException {
         try {
             FXMLLoader curveLoader = new FXMLLoader(getClass().getResource("SetCurvePage.fxml"));
@@ -142,7 +110,7 @@ public class ClassOverview {
 
             //if they set a curve
             if (curvePageController.isCurved()) {
-                defaultClassOverviewPaneController.fillCurveTableView(curvePageController.getCurvedResults());
+                defaultClassOverviewPaneController.fillCurveTableView(curvePageController.getCurvePercentage());
             }
 
 
@@ -185,7 +153,10 @@ public class ClassOverview {
             FXMLLoader graphPageLoader = new FXMLLoader(getClass().getResource("ChooseGraphPage.fxml"));
             Parent root = graphPageLoader.load();
             //assign curvePage controller
-            ChooseGraphPage chooseGraphPage = graphPageLoader.getController();
+            ChooseGraphPage chooseGraphPageController = graphPageLoader.getController();
+            //assign Variables
+            chooseGraphPageController.setCourseName(getCourseName());
+            chooseGraphPageController.setUserEmail(getUsername());
             //open curve page
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -195,6 +166,14 @@ public class ClassOverview {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void fillTable() throws IOException {
+        LoadCourseData loadCourseData = new LoadCourseData(getUsername());
+        String[][] data = loadCourseData.get_2D_Array_Loaded_With_The_Course_Data(getCourseName());
+        defaultClassOverviewPaneController.fillGrid(data,true);
+
+
     }
 
 
@@ -208,4 +187,5 @@ public class ClassOverview {
     public void setCourseNumberLabel(String number) {
         courseNumberLabel.textProperty().bind(new SimpleStringProperty("Course Number: " + number));
     }
+
 }

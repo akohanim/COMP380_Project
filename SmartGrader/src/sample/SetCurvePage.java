@@ -14,11 +14,20 @@ public class SetCurvePage {
     @FXML
     private TextField SetCurveTextField;
 
-    private CurvedResults curvedResults;
-
     private String userEmail, classname;
 
     private boolean wantsCurve;
+
+    public double getCurvePercentage() {
+        return curvePercentage;
+    }
+
+    public void setCurvePercentage(double curvePercentage) {
+        this.curvePercentage = curvePercentage;
+    }
+
+    private double curvePercentage;
+
 
     @FXML
     public void initialize() {
@@ -93,7 +102,7 @@ public class SetCurvePage {
 
     public void clickedResults(ActionEvent event) {
         if (isValidInput()) {
-            curvedResults = new CurvedResults(getUserEmail(), Double.parseDouble(SetCurveTextField.getText()));
+            curvePercentage=Double.parseDouble(SetCurveTextField.getText());
             setCurve(true);
 
             // close window
@@ -124,15 +133,6 @@ public class SetCurvePage {
     public void setClassname(String classname) {
         this.classname = classname;
     }
-
-    public CurvedResults getCurvedResults() {
-        return curvedResults;
-    }
-
-    public void setCurvedResults(CurvedResults curvedResults) {
-        this.curvedResults = curvedResults;
-    }
-
 
     public boolean isCurved() {
         return wantsCurve;

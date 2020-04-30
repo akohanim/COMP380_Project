@@ -1,26 +1,27 @@
+package sample;
 import java.io.IOException;
 
 public class LoadCourseData {
-	
+
 	private ExcelFileManager userFile;
 	private String[][] ArrayWithAllTheCourseData;
 	public LoadCourseData(String userEmail) {
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
 	}
-	
+
 	public String[][] get_2D_Array_Loaded_With_The_Course_Data(String courseName) {
 		int numberOfRows = 0;
 		int numberOfColumns = 0;
-		
+
 		try {//Getting proper numberOfRows and Columns for the ArrayWithAllTheCourseData, so that all of the data will fit in there
 			numberOfRows = userFile.get_Last_Row_Of_The_Sheet(courseName) - 6;
 			numberOfColumns = userFile.get_Last_Cell_Of_Row(courseName, 6) - 1;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		ArrayWithAllTheCourseData = new String[numberOfRows][numberOfColumns]; //assigned length to the array
-		
+
 		for(int col = 0; col < numberOfColumns; col++) {//putting all the assignments and their total points in the array. Assignments in the spreadsheet are at row 6 and total points of the assignments are at row 7.
 			try {
 				if (col < 4) {
@@ -32,7 +33,7 @@ public class LoadCourseData {
 				e.printStackTrace();
 			}
 		}
-		
+
 		for(int row = 1, rowOfTheSheet = 8; row < numberOfRows; row++, rowOfTheSheet++) {//Load the students and their data to the array.
 			for (int column = 0; column < numberOfColumns; column++) {
 				try {
@@ -42,7 +43,7 @@ public class LoadCourseData {
 				}
 			}
 		}
-		
+
 		return ArrayWithAllTheCourseData;
 	}
 }
