@@ -1,0 +1,54 @@
+<changelist name="Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]" date="1588201459254" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4/29/2020 4:04 PM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/Weights.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/Weights.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/Weights.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/WeightPage.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/WeightPage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/WeightPage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/HomePage.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/HomePage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/HomePage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/SetCurvePage.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/SetCurvePage.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/SetCurvePage.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/ClassOverview.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/ClassOverview.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/ClassOverview.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/DefaultClassOverviewPane.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/DefaultClassOverviewPane.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/DefaultClassOverviewPane.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/CreateCourse.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/CreateCourse.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/CreateCourse.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/COMP380_Project/sample/CourseTile.class" />
+    <option name="AFTER_PATH" value="out/production/COMP380_Project/sample/CourseTile.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/CourseTile.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="1.xlsx" />
+    <option name="AFTER_PATH" value="1.xlsx" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/1.xlsx" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="SmartGrader/src/thumbnails/reloadIcon.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_29_2020_4_04_PM_[Default_Changelist]/reloadIcon.png" />
+  </binary>
+</changelist>
