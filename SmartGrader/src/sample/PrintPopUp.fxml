@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+<VBox fx:id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="300.0" prefWidth="500.0" spacing="50.0" stylesheets="@../TealTeam.css"
       xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="sample.PrintPopUp">

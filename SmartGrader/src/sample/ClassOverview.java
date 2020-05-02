@@ -96,7 +96,7 @@ public class ClassOverview {
     public void printButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader printLoader = new FXMLLoader(getClass().getResource("PrintPopUp.fxml"));
         Parent root = printLoader.load();
-        //intiialize vairable in popup
+        //initialize variable in popup
         PrintPopUp printPopUpController = printLoader.getController();
         printPopUpController.setCourseName(getCourseName());
         printPopUpController.setUserName(getUsername());
@@ -151,8 +151,9 @@ public class ClassOverview {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("SmartGrader");
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
 
+            defaultClassOverviewPaneController.clickedRefresh(event);
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -18,7 +18,7 @@ public class PrintPopUp {
     public RadioButton IDRadioButton;
     public RadioButton DOBRadioButton;
     private String userName, courseName;
-    private GridPane printableGrid;
+
     public void clickedCancel(ActionEvent actionEvent) {
         //close popup window when cancel is clicked
         Stage stageTheEventSourceNodeBelongs = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -38,20 +38,18 @@ public class PrintPopUp {
             print.DOB_Is_Selected(getCourseName());
         }
 
-        String[][] Data = print.get_Printing_Data_In_A_2D_Array();
-
-        fillTable(Data);
-        printTable();
-
+        printTable(fillTable(print.get_Printing_Data_In_A_2D_Array()));
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Document Printed", ButtonType.OK);
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
-        alert.showAndWait();
+        alert.show();
+
+        clickedCancel(actionEvent);
     }
 
-    private void fillTable(String[][] data) {
-        printableGrid = new GridPane();
+    private GridPane fillTable(String[][] data) {
+        GridPane gridPane = new GridPane();
 
         for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data[row].length; col++) {
@@ -71,45 +69,36 @@ public class PrintPopUp {
                 if (row == 0) {
                     field.setDisable(true);
                     field.setStyle("-fx-opacity: 1;");
-                    field.getStyleClass().add("custom");
+                    field.getStyleClass().add("customTableHeader");
 
                 }
 
                 //add to grid
-                printableGrid.add(field, col, row);
+                gridPane.add(field, col, row);
             }
         }
 
+        return gridPane;
     }
 
-    public void printTable() throws PrinterException {
+    public void printTable(GridPane gridPane) {
         Printer printer = Printer.getDefaultPrinter();
         PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
 
-        // Get the print page size:
-        final double  prnW = pageLayout.getPrintableWidth();
-        final double  prnH = pageLayout.getPrintableHeight();
 
-        // Work out how many pages across and down are needed (This code may not work?):
-        final int  pagesAcross = (int) Math.ceil( printableGrid.getWidth() / prnW );
-        final int  pagesDown = (int) Math.ceil( printableGrid.getHeight() / prnH );
 
         /* Print pages down and then across like so:
            1    3
            2    4
+           Swop the for loops around if you want to print pages across first and then down.
         */
+        gridPane.setMaxSize( pageLayout.getPrintableHeight(),pageLayout.getPrintableWidth());
         PrinterJob job = PrinterJob.createPrinterJob();
-        for (int pgCol = 0; pgCol < pagesAcross; pgCol++ )
-        {
-            for ( int pgRow = 0; pgRow < pagesDown; pgRow++ )
-            {
-                printableGrid.setTranslateX( -(prnW * pgCol) );
-                printableGrid.setTranslateY( -(prnH * pgRow) );
-                job.printPage( pageLayout, printableGrid );
-            }
-        }
-
+        job.printPage(gridPane );
         job.endJob();
+
+
+
     }
 
 

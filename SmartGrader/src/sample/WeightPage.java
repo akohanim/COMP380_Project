@@ -86,6 +86,8 @@ public class WeightPage {
                     ProjectWeightTextField.setText(weights.load_Weight_Percentage(getCourseName(), "Projects"));
 
                     TotalPercentageLabel.setText("Total Percentage: " + weights.get_Total_Weight_Percentage(getCourseName()) + " %");
+
+                    weightCheckbox.setSelected(true);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -98,8 +100,12 @@ public class WeightPage {
         Weights weights = new Weights(getUserEmail());
         if (weightCheckbox.isSelected()){
             weights.set_Using_Weights_On_Or_Off(getCourseName(),"On" );
+            Grading grading = new Grading(getUserEmail());
+            grading.recalculate_The_Grades_Of_All_Students(getCourseName());
         } else {
             weights.set_Using_Weights_On_Or_Off(getCourseName(),"Off" );
+            Grading grading = new Grading(getUserEmail());
+            grading.recalculate_The_Grades_Of_All_Students(getCourseName());
         }
     }
 

@@ -60,6 +60,9 @@ public class ChooseGraphPage {
                         new PieChart.Data("F", data[4]));
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle(chartTitle);
+        chart.setLabelsVisible(true);
+        chart.setLegendVisible(true);
+
 
         //point fxml loader
         FXMLLoader graphPopUpLoader = new FXMLLoader();

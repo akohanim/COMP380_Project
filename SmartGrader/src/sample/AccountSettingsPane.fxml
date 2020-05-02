@@ -8,12 +8,10 @@
             xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.AccountSettingsPane">
     <top>
         <HBox alignment="CENTER" prefHeight="54.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label text="Account Settings"/>
-            </children>
             <BorderPane.margin>
                 <Insets/>
             </BorderPane.margin>
+            <Label text="Account Settings"/>
         </HBox>
     </top>
     <center>
@@ -27,46 +25,32 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
-            <children>
-                <HBox alignment="CENTER" GridPane.rowIndex="2">
-                    <children>
-                        <Button mnemonicParsing="false" text="Cancel" fx:id="cancelButton" onAction="#clickedCancel"/>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <children>
-                        <Button mnemonicParsing="false" text="Save" fx:id="saveButton" onAction="#clickedSave"/>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" spacing="20.0">
-                    <children>
-                        <Label text="First:"/>
-                        <TextField fx:id="firstNameTextField"/>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" spacing="20.0" GridPane.columnIndex="1">
-                    <children>
-                        <Label text="Last:"/>
-                        <TextField fx:id="lastNameTextField"/>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" spacing="20.0" GridPane.columnIndex="1"
-                      GridPane.rowIndex="1">
-                    <children>
-                        <Label text="Password:"/>
-                        <TextField fx:id="passwordTextField"/>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" spacing="20.0" GridPane.rowIndex="1">
-                    <children>
-                        <Label text="Email:"/>
-                        <TextField fx:id="emailTextField"/>
-                    </children>
-                </HBox>
-            </children>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
             </padding>
+            <HBox alignment="CENTER" GridPane.rowIndex="2">
+                <Button mnemonicParsing="false" text="Cancel" onAction="#clickedCancel"/>
+            </HBox>
+            <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Button mnemonicParsing="false" text="Save" onAction="#clickedSave"/>
+            </HBox>
+            <HBox alignment="CENTER" spacing="20.0">
+                <Label text="First:"/>
+                <TextField fx:id="firstNameTextField"/>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" spacing="20.0" GridPane.columnIndex="1">
+                <Label text="Last:"/>
+                <TextField fx:id="lastNameTextField"/>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" spacing="20.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="1">
+                <Label text="Password:"/>
+                <TextField fx:id="passwordTextField"/>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="30.0" layoutY="30.0" spacing="20.0" GridPane.rowIndex="1">
+                <Label text="Email:"/>
+                <TextField fx:id="emailTextField"/>
+            </HBox>
         </GridPane>
     </center>
 </BorderPane>

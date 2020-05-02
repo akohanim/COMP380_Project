@@ -145,7 +145,7 @@ public class DefaultClassOverviewPane {
 
     public void fillGrid(String[][] data, boolean withbuttons) {
         theGrid.getChildren().clear();
-
+        theGrid.setAlignment(Pos.TOP_CENTER);
         for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data[row].length; col++) {
                 //create textfield
@@ -165,7 +165,7 @@ public class DefaultClassOverviewPane {
                 if (row == 0) {
                     field.setDisable(true);
                     field.setStyle("-fx-opacity: 1;");
-                    field.getStyleClass().add("custom");
+                    field.getStyleClass().add("customTableHeader");
 
                 }
 
@@ -214,8 +214,6 @@ public class DefaultClassOverviewPane {
                     //add listeners to edit assignment Button
                     button.setOnAction(e ->{
                         try {
-
-                            //TODO fix delete
                             //open up the edit assignment page
                             FXMLLoader editAssignmentLoader = new FXMLLoader();
                             editAssignmentLoader.setLocation(getClass().getResource("EditAssignmentPage.fxml"));
@@ -235,6 +233,9 @@ public class DefaultClassOverviewPane {
                             stage.setScene(scene);
                             stage.showAndWait();
 
+
+                            Grading grading = new Grading(getUserEmail());
+                            grading.recalculate_The_Grades_Of_All_Students(getClassName());
                             refreshTable();
 
                         } catch (IOException ioException) {
