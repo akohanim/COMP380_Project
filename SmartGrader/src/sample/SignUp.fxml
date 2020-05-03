@@ -56,8 +56,8 @@
                     </HBox.margin>
                 </Button>
                 <Button fx:id="SignUpButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0"
-                        style="-fx-background-color: #276d7e; -fx-text-fill: aliceblue;" styleClass="text-field"
-                        text="Sign Up">
+                        style="-fx-background-color: #276d7e; -fx-font-size: 17; -fx-text-fill: aliceblue;"
+                        styleClass="text-field" text="Sign Up">
                     <HBox.margin>
                         <Insets top="40.0"/>
                     </HBox.margin>

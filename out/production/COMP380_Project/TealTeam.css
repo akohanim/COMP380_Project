@@ -71,7 +71,7 @@
 .text-area{
     -fx-text-alignment: center;
 }
-.check-box{
+.check-box {
     -fx-font-size: 17;
     -fx-text-fill: aliceblue;
 }
@@ -81,20 +81,24 @@
     -fx-border-radius: 0;
     -fx-text-alignment: center;
 }
-.customTableButton{
+
+.customTableButton {
     -fx-background-color: darkred;
     -fx-background-radius: 0;
     -fx-font-size: 15;
     -fx-text-fill: aliceblue;
     -fx-background-size: cover;
 }
-.choice-box{
+
+.choice-box {
     -fx-background-color: #383838;
     -fx-text-fill: aliceblue;
 }
+
 .text-input:disabled {
     -fx-opacity: 1.0;
 }
-.text-field:disabled{
+
+.text-field:disabled {
     -fx-opacity: 1.0;
 }

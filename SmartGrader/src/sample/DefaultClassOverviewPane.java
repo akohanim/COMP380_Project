@@ -139,6 +139,10 @@ public class DefaultClassOverviewPane {
 
                 //style cells appropriately
                 field.setAlignment(Pos.CENTER);
+                if (col < 4) {
+                    field.setDisable(true);
+                    field.setStyle("-fx-opacity: 1;");
+                }
                 if (row % 2 == 0 && row != 0) {
                     field.setStyle("-fx-background-color: white");
                 } else if (row != 0) {

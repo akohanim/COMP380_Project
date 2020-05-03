@@ -1,65 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-          minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" style="-fx-background-color: #536668;"
-          stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.SignIn">
-    <columnConstraints>
-        <ColumnConstraints maxWidth="132.0" minWidth="52.0" prefWidth="90.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="131.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="230.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="181.0"/>
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints maxHeight="169.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="137.0" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES"/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0"/>
-    </rowConstraints>
 
-    <Label text="User Name:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../TealTeam.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignIn">
+    <center>
+        <GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="131.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="230.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                <RowConstraints />
+            </rowConstraints>
 
-    <TextField fx:id="EmailTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-    <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
-        <children>
+            <Label text="User Name:" />
 
-            <Label text="Password:" />
-        </children>
-    </VBox>
-    <VBox prefHeight="135.0" prefWidth="222.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-        <children>
-            <PasswordField fx:id="PasswordTextField" onAction="#logInClicked"/>
-            <Button fx:id="LogInButton" alignment="CENTER" onAction="#logInClicked" prefHeight="33.0" prefWidth="150.0" text="Log In">
-                <VBox.margin>
-                    <Insets top="30.0" />
-                </VBox.margin>
-            </Button>
-        </children>
-    </VBox>
-    <VBox layoutX="147.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
-        <children>
-            <HBox prefHeight="200.0" prefWidth="200.0">
-                <children>
-                    <Button fx:id="SignInButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0"
-                            style="-fx-background-color: #276d7e; -fx-text-fill: aliceblue;" text="Sign in">
-                        <HBox.margin>
-                            <Insets top="40.0"/>
-                        </HBox.margin>
-                    </Button>
-                    <Button fx:id="SignUpButton" mnemonicParsing="false" onAction="#clickedSignUp" prefHeight="39.0"
-                            prefWidth="99.0" stylesheets="@../TealTeam.css" text="Sign Up">
-                        <HBox.margin>
-                            <Insets top="40.0"/>
-                        </HBox.margin>
-                    </Button>
-                </children>
-            </HBox>
-        </children>
-    </VBox>
+            <TextField fx:id="EmailTextField" GridPane.columnIndex="1" />
 
-</GridPane>
+            <Label text="Password:" GridPane.rowIndex="1" />
+            <PasswordField fx:id="PasswordTextField" onAction="#logInClicked" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        </GridPane>
+    </center>
+    <top>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="SignInButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="99.0" style="-fx-background-color: #276d7e; -fx-text-fill: aliceblue;" text="Sign in" />
+                <Button fx:id="SignUpButton" mnemonicParsing="false" onAction="#clickedSignUp" prefHeight="39.0" prefWidth="99.0" stylesheets="@../TealTeam.css" text="Sign Up" />
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="LogInButton" alignment="CENTER" onAction="#logInClicked" prefWidth="100.0" text="Log In" />
+            </children>
+        </HBox>
+    </bottom>
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+</BorderPane>
