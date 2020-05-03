@@ -4,18 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -82,15 +77,17 @@ public class SearchClassOverviewPane {
     private void fillTable(String[][] data){
         resultsTable.getChildren().clear();
         resultsTable.setAlignment(Pos.TOP_CENTER);
-        HBox.setHgrow(resultsTable,Priority.ALWAYS);
+        HBox.setHgrow(resultsTable, Priority.ALWAYS);
 
-        Label name = new Label("Name");
-        Label IDNumber = new Label("ID");
-        Label DOB = new Label("Date Of Birth");
 
-        resultsTable.add(name , 0,0);
-        resultsTable.add(IDNumber, 1,0);
-        resultsTable.add(DOB, 2,0);
+        String[] header = {"Full Name", "ID Number", "Date Of Birth"};
+        for (int i = 0; i < header.length; i++) {
+            TextField field = new TextField(header[i]);
+            field.setDisable(true);
+            field.getStyleClass().add("customTableHeader");
+            field.setAlignment(Pos.CENTER);
+            resultsTable.add(field, i, 0);
+        }
 
 
         for (int row = 0; row < data.length; row++) {
@@ -112,16 +109,14 @@ public class SearchClassOverviewPane {
                     field.setStyle("-fx-background-color: lightgray");
                 }
 
-                if (col == data[row].length - 1){
-                    HBox hBox = new HBox();
-                    hBox.setAlignment(Pos.CENTER);
-                    hBox.setPrefHeight(Control.USE_COMPUTED_SIZE);
-                    hBox.setPrefWidth(Control.USE_COMPUTED_SIZE);
+                //add to grid
+                resultsTable.add(field, col, row + 1);
 
+                if (col == data[row].length - 1) {
                     Button button = new Button("Student Profile");
                     button.getStyleClass().add("customTableButton");
                     int finalRow = row;
-                    button.setOnAction(e ->{
+                    button.setOnAction(e -> {
                         try {
                             //Load FXML for editStudentPage
                             FXMLLoader studentInfoPaneloader = new FXMLLoader();
@@ -148,13 +143,9 @@ public class SearchClassOverviewPane {
                         }
                     });
 
-                    hBox.getChildren().addAll(field,button);
                     //add to grid
-                    resultsTable.add(hBox, col, row +1);
+                    resultsTable.add(button, col + 1, row + 1);
 
-                } else {
-                    //add to grid
-                    resultsTable.add(field, col, row+1);
                 }
             }
         }

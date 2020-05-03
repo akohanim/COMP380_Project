@@ -7,15 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.awt.print.PrinterException;
 import java.io.IOException;
 
 public class ClassOverview {
@@ -122,6 +118,14 @@ public class ClassOverview {
 
             //if they set a curve
             if (curvePageController.isCurved()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("DefaultClassOverviewPane.fxml"));
+                mainView.getChildren().clear();
+                mainView.setCenter(loader.load());
+
+                //load controller
+                defaultClassOverviewPaneController = loader.getController();
+                defaultClassOverviewPaneController.setClassName(getCourseName());
+                defaultClassOverviewPaneController.setUserEmail(getUsername());
                 defaultClassOverviewPaneController.fillCurveTableView(curvePageController.getCurvePercentage());
             }
 
@@ -153,8 +157,15 @@ public class ClassOverview {
             stage.setScene(scene);
             stage.showAndWait();
 
-            defaultClassOverviewPaneController.clickedRefresh(event);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DefaultClassOverviewPane.fxml"));
+            mainView.getChildren().clear();
+            mainView.setCenter(loader.load());
 
+            //load controller
+            defaultClassOverviewPaneController = loader.getController();
+            defaultClassOverviewPaneController.setClassName(getCourseName());
+            defaultClassOverviewPaneController.setUserEmail(getUsername());
+            defaultClassOverviewPaneController.clickedRefresh(event);
         } catch (IOException e) {
             e.printStackTrace();
         }

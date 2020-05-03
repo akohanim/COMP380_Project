@@ -1,37 +1,22 @@
 package sample;
 
 
-import javafx.application.Platform;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.print.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.*;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jdk.jfr.SettingControl;
 
-import javax.swing.*;
-import javax.swing.table.TableCellRenderer;
-import java.awt.*;
-import java.awt.print.PrinterException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 
 
 public class DefaultClassOverviewPane {
@@ -40,11 +25,10 @@ public class DefaultClassOverviewPane {
     public Button AddStudentButton;
     public Button AddAssignmentButton;
     public VBox mainBox;
-    public SwingNode theNode;
     public GridPane theGrid;
     public ScrollPane scrollPane;
     private String className, userEmail;
-    private JPanel panel;
+
 
     public String getClassName() {
         return className;
@@ -64,8 +48,6 @@ public class DefaultClassOverviewPane {
 
     @FXML
     public void initialize() throws InvocationTargetException, InterruptedException {
-        // String[][] data = {{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"},{"1","2", "3","4","5","6"}};
-        // fillGrid(data, true);
     }
 
     public void clickedAddStudent(ActionEvent event) throws IOException {
@@ -151,7 +133,7 @@ public class DefaultClassOverviewPane {
                 //create textfield
                 TextField field = new TextField();
                 field.setPrefHeight(Control.USE_COMPUTED_SIZE);
-                field.setMaxWidth(Control.USE_COMPUTED_SIZE);
+                field.setPrefWidth(Control.USE_COMPUTED_SIZE);
                 field.setStyle("-fx-border-width: 5");
                 field.setText(data[row][col]);
 
@@ -206,7 +188,7 @@ public class DefaultClassOverviewPane {
                 theGrid.add(field, col, row);
 
                 if (row == data.length - 1 && col > 3 && withbuttons) {
-                    Button button = new Button("Edit");
+                    Button button = new Button(" Edit ");
                     button.setMaxSize(100, 200);
                     button.getStyleClass().add("customTableButton");
 
@@ -242,7 +224,12 @@ public class DefaultClassOverviewPane {
                             ioException.printStackTrace();
                         }
                     });
-                    theGrid.add(button, col, row + 1);
+
+                    HBox hBox = new HBox();
+                    HBox.setHgrow(button, Priority.ALWAYS);
+                    hBox.getChildren().add(button);
+                    hBox.setAlignment(Pos.TOP_CENTER);
+                    theGrid.add(hBox, col, row + 1);
                 }
 
                 if (col == data[row].length - 1 && row > 0 && withbuttons) {

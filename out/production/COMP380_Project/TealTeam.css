@@ -32,6 +32,7 @@
     -fx-background-color: #DDEDEF;
     -fx-text-fill: #383838;
     -fx-border-radius: 0;
+    -fx-font-size: 13;
 
 }
 
@@ -40,8 +41,8 @@
 }
 
 .scroll-pane {
-    -fx-background-color: #383838;
-    -fx-border-color: transparent;
+    -fx-border-color: #435759;
+    -fx-background: #435759;
 }
 
 .scroll-bar {
@@ -63,9 +64,7 @@
     -fx-text-fill: #A5B6B8;
     -fx-font-size: 20.0px;
 }
-.scroll-pane {
-    -fx-background: #435759;
-}
+
 .myButton:hover {
     -fx-background-color: #dae7f3;
 }
@@ -74,7 +73,7 @@
 }
 .check-box{
     -fx-font-size: 17;
-    -fx-text-fill: #394B4C;
+    -fx-text-fill: aliceblue;
 }
 .customTableHeader{
     -fx-background-color: teal;
@@ -85,8 +84,17 @@
 .customTableButton{
     -fx-background-color: darkred;
     -fx-background-radius: 0;
-    -fx-font-size: 12;
+    -fx-font-size: 15;
     -fx-text-fill: aliceblue;
     -fx-background-size: cover;
 }
-
+.choice-box{
+    -fx-background-color: #383838;
+    -fx-text-fill: aliceblue;
+}
+.text-input:disabled {
+    -fx-opacity: 1.0;
+}
+.text-field:disabled{
+    -fx-opacity: 1.0;
+}

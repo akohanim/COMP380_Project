@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" spacing="5.0" stylesheets="@../TealTeam.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchClassOverviewPane">
+<VBox alignment="TOP_CENTER" snapToPixel="false" spacing="10.0" style="-fx-background-color: #536668;" stylesheets="@../TealTeam.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchClassOverviewPane">
     <HBox>
         <Label text="Search Student" />
         <Region HBox.hgrow="ALWAYS" />
@@ -58,6 +58,9 @@
         <HBox alignment="TOP_RIGHT" GridPane.rowIndex="2">
             <Button fx:id="ClearButton" mnemonicParsing="false" onAction="#clickedClear" text="Clear" />
         </HBox>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
     </GridPane>
    <ScrollPane hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
       <content>

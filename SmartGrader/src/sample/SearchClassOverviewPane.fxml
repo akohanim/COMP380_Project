@@ -2,17 +2,20 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<VBox alignment="TOP_CENTER" spacing="5.0" stylesheets="@../TealTeam.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchClassOverviewPane">
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" snapToPixel="false" spacing="10.0"
+      style="-fx-background-color: #536668;" stylesheets="@../TealTeam.css" BorderPane.alignment="CENTER"
+      xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.SearchClassOverviewPane">
     <HBox>
-        <Label text="Search Student" />
-        <Region HBox.hgrow="ALWAYS" />
-        <Button maxHeight="31.0" maxWidth="33.0" mnemonicParsing="false" onAction="#xButtonClicked" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #324748;" fx:id="xButtton">
+        <Label text="Search Student"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button maxHeight="31.0" maxWidth="33.0" mnemonicParsing="false" onAction="#xButtonClicked" prefHeight="20.0"
+                prefWidth="20.0" style="-fx-background-color: #324748;" fx:id="xButtton">
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../thumbnails/XIcon.png" />
+                    <Image url="@../thumbnails/XIcon.png"/>
                 </ImageView>
             </graphic>
             <padding>
@@ -49,15 +52,18 @@
             <TextField fx:id="IDField" />
         </HBox>
         <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="50.0" GridPane.rowIndex="1">
-            <Label text="Date of Birth:" />
-            <TextField fx:id="DOBField" />
+            <Label text="Date of Birth:"/>
+            <TextField fx:id="DOBField"/>
         </HBox>
         <HBox GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <Button fx:id="SearchStudentButton" mnemonicParsing="false" onAction="#clickedSearchStudent" text="Search" />
+            <Button fx:id="SearchStudentButton" mnemonicParsing="false" onAction="#clickedSearchStudent" text="Search"/>
         </HBox>
         <HBox alignment="TOP_RIGHT" GridPane.rowIndex="2">
-            <Button fx:id="ClearButton" mnemonicParsing="false" onAction="#clickedClear" text="Clear" />
+            <Button fx:id="ClearButton" mnemonicParsing="false" onAction="#clickedClear" text="Clear"/>
         </HBox>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
     </GridPane>
    <ScrollPane hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
       <content>

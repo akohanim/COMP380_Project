@@ -27,6 +27,13 @@ public class StudentInfoPane {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchClassOverviewPane.fxml"));
             mainView.getChildren().clear();
             mainView.setCenter(loader.load());
+
+            SearchClassOverviewPane searchClassOverviewPaneController = loader.getController();
+            searchClassOverviewPaneController.setUserName(getUserName());
+            searchClassOverviewPaneController.setCourseName(getCourseName());
+            searchClassOverviewPaneController.setBorderPane(mainView);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,12 +47,13 @@ public class StudentInfoPane {
             for (int col = 0; col < data[row].length; col++) {
                 //create textfield
                 TextField field = new TextField();
-                field.setPrefHeight(Control.USE_COMPUTED_SIZE);
-                field.setMaxWidth(Control.USE_COMPUTED_SIZE);
+                field.setMinHeight(Control.USE_COMPUTED_SIZE);
+                field.setMinWidth(Control.USE_COMPUTED_SIZE);
+                field.setPrefSize(150, 30);
                 field.setStyle("-fx-border-width: 5");
                 field.setText(data[row][col]);
                 field.setDisable(true);
-                field.setStyle("-fx-opacity: 1;");
+                field.setStyle("-fx-opacity: 1");
 
                 //style cells appropriately
                 field.setAlignment(Pos.CENTER);
@@ -53,6 +61,11 @@ public class StudentInfoPane {
                     field.setStyle("-fx-background-color: white");
                 } else if (row != 0) {
                     field.setStyle("-fx-background-color: lightgray");
+                }
+                if (row == 0) {
+                    field.setDisable(true);
+                    field.setStyle("-fx-opacity: 1;");
+                    field.getStyleClass().add("customTableHeader");
                 }
 
                 //add to grid
@@ -113,6 +126,8 @@ public class StudentInfoPane {
         try {
             Students students = new Students(getUserName());
             students.delete_Student(getCourseName(), IDLabel.getText());
+
+            clickedBack(actionEvent);
         } catch (IOException e) {
             e.printStackTrace();
         }
