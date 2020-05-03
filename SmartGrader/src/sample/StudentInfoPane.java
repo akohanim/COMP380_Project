@@ -57,7 +57,12 @@ public class StudentInfoPane {
 
                 //style cells appropriately
                 field.setAlignment(Pos.CENTER);
-                if (row % 2 == 0) {
+                //style black cells
+                if (row > data.length - 5) {
+                    field.setDisable(true);
+                    field.setStyle("-fx-opacity: 1;");
+                    field.getStyleClass().add("customDarkTable");
+                } else if (row % 2 == 0) {
                     field.setStyle("-fx-background-color: white");
                 } else if (row != 0) {
                     field.setStyle("-fx-background-color: lightgray");
