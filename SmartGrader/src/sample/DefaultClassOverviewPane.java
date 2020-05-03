@@ -239,6 +239,7 @@ public class DefaultClassOverviewPane {
                 if (col == data[row].length - 1 && row > 0 && withbuttons) {
                     Button button = new Button("Edit Student");
                     button.getStyleClass().add("customTableButton");
+                    button.setStyle("-fx-font-size: 12;");
                     theGrid.add(button, col + 1, row);
                     int finalRow = row;
                     button.setOnAction(e ->{
