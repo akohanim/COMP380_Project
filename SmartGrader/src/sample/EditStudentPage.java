@@ -69,10 +69,12 @@ public class EditStudentPage {
 
     }
 
-    public void fillData(String first, String last, String DOB) {
+    public void fillData(String first, String last, String DOB, int row) {
         FirstNameTextField.setText(first);
         LastNameTextField.setText(last);
         StudentIDNumberTextField.setText(getOldStudentIDNumber());
+        Students students = new Students(getUserEmail());
+        DOBTextField.setText(students.get_Student_DOB(getCourseName(), row));
     }
 
     public String getOldStudentIDNumber() {

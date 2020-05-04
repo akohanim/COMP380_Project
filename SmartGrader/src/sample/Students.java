@@ -1,23 +1,17 @@
 package sample;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Students {
-	private ExcelFileManager userFile;
-	
+	private final ExcelFileManager userFile;
+
 	public Students(String userEmail) {
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
 	}
-	
+
 	public boolean does_This_Student_Exists(String courseName, String studentIdNumber) throws IOException {
 		int studentRow = get_Student_Row(courseName, studentIdNumber);
-		if (studentRow != -1) {
-			return true;
-		}
-		return false;
+		return studentRow != -1;
 	}
 	
 	public void add_Student(String courseName, String firstName, String lastName, String DOB, String studentIdNumber) throws IOException {
@@ -45,7 +39,7 @@ public class Students {
 		userFile.update_Cell(newLastName, courseName, studentRow, 2);
 		userFile.update_Cell(newStudentIdNumber, courseName, studentRow, 3);
 	}
-	
+
 	private int get_Student_Row(String courseName, String studentIdNumber) throws IOException {
 		int lastRow = userFile.get_Last_Row_Of_The_Sheet(courseName);
 		for (int i = 8; i <= lastRow; i++) {
@@ -54,5 +48,15 @@ public class Students {
 			}
 		}
 		return -1; //this means the user does not exists
+	}
+
+	public String get_Student_DOB(String courseName, int studentRowNumber) {
+		String studentDOB = null;
+		try {
+			studentDOB = userFile.get_Data_At(courseName, studentRowNumber, 0);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return studentDOB;
 	}
 }

@@ -255,7 +255,7 @@ public class DefaultClassOverviewPane {
                             editStudentPageController.setCourseName(getClassName());
                             editStudentPageController.setOldStudentIDNumber(data[finalRow][2]);
                             editStudentPageController.setUserEmail(getUserEmail());
-                            editStudentPageController.fillData(data[finalRow][0], data[finalRow][1], data[finalRow][3]);
+                            editStudentPageController.fillData(data[finalRow][0], data[finalRow][1], data[finalRow][3], finalRow + 7);
 
                             //Change window
                             Scene scene = new Scene(parent);
