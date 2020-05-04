@@ -54,8 +54,8 @@ public class EditStudentPage {
     public void clickedDeleteStudent(ActionEvent actionEvent) throws IOException {
         try {
             Students students = new Students(getUserEmail());
-
             students.delete_Student(getCourseName(),getOldStudentIDNumber());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,6 +69,11 @@ public class EditStudentPage {
 
     }
 
+    public void fillData(String first, String last, String DOB) {
+        FirstNameTextField.setText(first);
+        LastNameTextField.setText(last);
+        StudentIDNumberTextField.setText(getOldStudentIDNumber());
+    }
 
     public String getOldStudentIDNumber() {
         return oldStudentIDNumber;

@@ -36,7 +36,6 @@ public class EditAssignmentPage {
                 Assignments assignments = new Assignments(getUserEmail());
 
                 assignments.edit_Assignment(getCourseName(), (getColumnNumber() + 1) , NameTextField.getText(), PointsTextField.getText(),choiceBox.getValue().toString());
-
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Student has been Edited.", ButtonType.OK);
                 DialogPane dialogPane = alert.getDialogPane();
                 dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
@@ -78,6 +77,18 @@ public class EditAssignmentPage {
         }
 
 
+    }
+
+
+    public void fillInfo() {
+        try {
+            Assignments assignments = new Assignments(getUserEmail());
+            NameTextField.setText(assignments.load_Assignment_Name(getCourseName(), columnNumber + 1));
+            PointsTextField.setText(String.valueOf(assignments.load_Assignment_Points(getCourseName(), columnNumber + 1)));
+            choiceBox.setValue(assignments.load_Assignment_Type(getCourseName(), columnNumber + 1));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getUserEmail() {

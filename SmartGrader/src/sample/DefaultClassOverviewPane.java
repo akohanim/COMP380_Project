@@ -210,7 +210,7 @@ public class DefaultClassOverviewPane {
                             editAssignmentPageController.setColumnNumber(finalCol);
                             editAssignmentPageController.setCourseName(getClassName());
                             editAssignmentPageController.setUserEmail(getUserEmail());
-
+                            editAssignmentPageController.fillInfo();
                             //Change window
                             Scene scene = new Scene(parent);
                             Stage stage = new Stage();
@@ -255,6 +255,8 @@ public class DefaultClassOverviewPane {
                             editStudentPageController.setCourseName(getClassName());
                             editStudentPageController.setOldStudentIDNumber(data[finalRow][2]);
                             editStudentPageController.setUserEmail(getUserEmail());
+                            editStudentPageController.fillData(data[finalRow][0], data[finalRow][1], data[finalRow][3]);
+
                             //Change window
                             Scene scene = new Scene(parent);
                             Stage stage = new Stage();
