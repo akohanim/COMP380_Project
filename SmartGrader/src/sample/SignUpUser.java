@@ -5,7 +5,7 @@ import java.io.IOException;
 public class SignUpUser {
 
     private boolean UserAlreadyExists;
-    private String SheetNameForAccounts = "Accounts";
+    private final String SheetNameForAccounts = "Accounts";
 
     public SignUpUser(String FirstName, String LastName, String Email, String Password) throws IOException {
         ExcelFileManager accountsFile = new ExcelFileManager("Accounts.xlsx");

@@ -1,16 +1,17 @@
 package sample;
-import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import java.io.IOException;
+
 public class Assignments {
-	private ExcelFileManager userFile;
-	
+	private final ExcelFileManager userFile;
+
 	public Assignments(String userEmail) {
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
 	}
-	
+
 	private void shift_Columns(String courseName, int rowIndex, int cellIndex) throws IOException, EncryptedDocumentException, InvalidFormatException {
 		int lastCellInThisRow = userFile.get_Last_Cell_Of_Row(courseName, rowIndex);
 		for (int i = cellIndex; i <= lastCellInThisRow - 1; i++) {

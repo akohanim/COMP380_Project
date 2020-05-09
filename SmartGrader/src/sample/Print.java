@@ -3,19 +3,19 @@ package sample;
 import java.io.IOException;
 
 public class Print {
-	private ExcelFileManager userFile;
-	private ExcelFileManager printFile = new ExcelFileManager("printing data.xlsx");
-	private String printingDataSheet = "Printing Data";
-	private String[][] printDataIn2DArray;
-	
-	public Print(String userEmail)  {
-		userFile = new ExcelFileManager(userEmail + ".xlsx");
-		
-	}
-	
-	private void clean_Or_Create_The_Print_File_If_It_Does_Not_Exists() {
-		if (printFile.doesFileExists() == false) {
-			try {
+    private final ExcelFileManager userFile;
+    private final ExcelFileManager printFile = new ExcelFileManager("printing data.xlsx");
+    private final String printingDataSheet = "Printing Data";
+    private String[][] printDataIn2DArray;
+
+    public Print(String userEmail) {
+        userFile = new ExcelFileManager(userEmail + ".xlsx");
+
+    }
+
+    private void clean_Or_Create_The_Print_File_If_It_Does_Not_Exists() {
+        if (printFile.doesFileExists() == false) {
+            try {
 				printFile.create_The_File();
 				printFile.create_A_New_Sheet(printingDataSheet);
 			} catch (IOException e) {

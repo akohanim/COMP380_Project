@@ -39,11 +39,6 @@ public class ClassOverview {
         return courseName;
     }
 
-
-    @FXML
-    public void initialize() {
-    }
-
     //clicking home button takes you back to homepage.
     public void homeButtonClicked(ActionEvent event) throws IOException {
         try {

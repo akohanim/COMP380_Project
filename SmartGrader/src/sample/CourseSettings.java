@@ -7,17 +7,17 @@ import java.io.IOException;
 
 public class CourseSettings {
 
-	private ExcelFileManager userFile;
-	private String CourseName;
+    private final ExcelFileManager userFile;
+    private final String CourseName;
 
-	public CourseSettings(String userEmail, String CourseName) {
-		userFile = new ExcelFileManager(userEmail + ".xlsx");
-		this.CourseName = CourseName;
-	}
+    public CourseSettings(String userEmail, String CourseName) {
+        userFile = new ExcelFileManager(userEmail + ".xlsx");
+        this.CourseName = CourseName;
+    }
 
-	public void delete_The_Course() {
-		userFile.delete_This_Sheet(CourseName);
-	}
+    public void delete_The_Course() {
+        userFile.delete_This_Sheet(CourseName);
+    }
 
 	public void rename_The_Course_To(String newName) throws IOException {
 		userFile.rename_Sheet(CourseName, newName);

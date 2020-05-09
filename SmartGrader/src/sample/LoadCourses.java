@@ -6,17 +6,17 @@ import java.io.IOException;
 
 public class LoadCourses {
 
-	private ExcelFileManager userFile;
+    private final ExcelFileManager userFile;
 
-	public LoadCourses(String userEmail) throws IOException {
-		userFile = new ExcelFileManager(userEmail + ".xlsx");
-	}
+    public LoadCourses(String userEmail) throws IOException {
+        userFile = new ExcelFileManager(userEmail + ".xlsx");
+    }
 
-	public int get_Total_Number_Of_Courses() throws IOException {//return 0 if there are no sheets and return 1 for the first sheet, but remember the "index" for the first sheet is 0;
-		return userFile.get_Total_Number_Of_Sheets();
-	}
+    public int get_Total_Number_Of_Courses() throws IOException {//return 0 if there are no sheets and return 1 for the first sheet, but remember the "index" for the first sheet is 0;
+        return userFile.get_Total_Number_Of_Sheets();
+    }
 
-	public String get_Course_Name_For_Index(int sheetIndex) throws IOException {
+    public String get_Course_Name_For_Index(int sheetIndex) throws IOException {
 		return userFile.get_Sheet_Name_At(sheetIndex);
 	}
 

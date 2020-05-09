@@ -4,39 +4,39 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class Grading {
-	private ExcelFileManager userFile;
-	
-	private double quizesWeight;
-	private double homeworksWeight;
-	private double examsWeight;
-	private double projectsWeight;
-	
-	private double totalCourseQuizesPoints;
-	private double totalCourseHomeworksPoints;
-	private double totalCourseExamsPoints;
-	private double totalCourseProjectsPoints;
-	
-	private double studentTotalQuizesPoints;
-	private double studentTotalHomeworksPoints;
-	private double studentTotalExamsPoints;
-	private double studentTotalProjectsPoints;
-	
-	private double studentTotalQuizesPercentage;
-	private double studentTotalHomeworksPercentage;
-	private double studentTotalExamsPercentage;
-	private double studentTotalProjectsPercentage;
-	
-	private int[] arrayOfTotalNumberOfAsBsCsDsAndFs = new int[5];
-	
-	private int gradeRangeForA;
-	private int gradeRangeForB;
-	private int gradeRangeForC;
-	private int gradeRangeForD;
-	private int gradeRangeForF;
-	
-	private boolean useTheWeights;
-	
-	public Grading(String userEmail) {
+    private final ExcelFileManager userFile;
+
+    private double quizesWeight;
+    private double homeworksWeight;
+    private double examsWeight;
+    private double projectsWeight;
+
+    private double totalCourseQuizesPoints;
+    private double totalCourseHomeworksPoints;
+    private double totalCourseExamsPoints;
+    private double totalCourseProjectsPoints;
+
+    private double studentTotalQuizesPoints;
+    private double studentTotalHomeworksPoints;
+    private double studentTotalExamsPoints;
+    private double studentTotalProjectsPoints;
+
+    private double studentTotalQuizesPercentage;
+    private double studentTotalHomeworksPercentage;
+    private double studentTotalExamsPercentage;
+    private double studentTotalProjectsPercentage;
+
+    private final int[] arrayOfTotalNumberOfAsBsCsDsAndFs = new int[5];
+
+    private int gradeRangeForA;
+    private int gradeRangeForB;
+    private int gradeRangeForC;
+    private int gradeRangeForD;
+    private int gradeRangeForF;
+
+    private boolean useTheWeights;
+
+    public Grading(String userEmail) {
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
 	}
 	private void reset_All_The_Variables() {

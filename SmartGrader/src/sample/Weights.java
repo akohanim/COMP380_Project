@@ -1,22 +1,22 @@
 package sample;
 
-import java.io.IOException;
-
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import java.io.IOException;
+
 public class Weights {
-	private ExcelFileManager userFile;
-	
-	public Weights(String userEmail) {
-		userFile = new ExcelFileManager(userEmail + ".xlsx");
-		
-	}
-	
-	private int get_Cell_Of_This_Weight(String courseName, String weightName) throws IOException {
-		for (int i = 0; i <= userFile.get_Last_Cell_Of_Row(courseName, 1); i++) {
-			if(weightName.equalsIgnoreCase(userFile.get_Data_At(courseName, 1, i))) {
-				return i;
+    private final ExcelFileManager userFile;
+
+    public Weights(String userEmail) {
+        userFile = new ExcelFileManager(userEmail + ".xlsx");
+
+    }
+
+    private int get_Cell_Of_This_Weight(String courseName, String weightName) throws IOException {
+        for (int i = 0; i <= userFile.get_Last_Cell_Of_Row(courseName, 1); i++) {
+            if (weightName.equalsIgnoreCase(userFile.get_Data_At(courseName, 1, i))) {
+                return i;
 			}
 		}
 		return -1; //This is when the weight does not exists in the list.

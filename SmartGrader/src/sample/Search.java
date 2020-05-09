@@ -2,33 +2,31 @@ package sample;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 
 public class Search {
-	private ExcelFileManager userFile;
-	private ArrayList<Integer> studentsFoundByFirstNameRowIndex = new ArrayList<Integer>();
-	private ArrayList<Integer> studentsFoundByLastNameRowIndex = new ArrayList<Integer>();
-	private ArrayList<Integer> studentsFoundByDOBRowIndex = new ArrayList<Integer>();
-	private ArrayList<Integer> studentsFoundByIdNumberRowIndex = new ArrayList<Integer>();
-	
-	private ArrayList<Integer> studentsThatMatchedWithAnotherArray = new ArrayList<Integer>();
-	
+	private final ExcelFileManager userFile;
+	private final ArrayList<Integer> studentsFoundByFirstNameRowIndex = new ArrayList<Integer>();
+	private final ArrayList<Integer> studentsFoundByLastNameRowIndex = new ArrayList<Integer>();
+	private final ArrayList<Integer> studentsFoundByDOBRowIndex = new ArrayList<Integer>();
+	private final ArrayList<Integer> studentsFoundByIdNumberRowIndex = new ArrayList<Integer>();
+
+	private final ArrayList<Integer> studentsThatMatchedWithAnotherArray = new ArrayList<Integer>();
+
 	private String[][] results;
-	
-	private ArrayList<String> namesOfAllCoursesTheStudentIsInItInArrayList = new ArrayList<String>();
+
+	private final ArrayList<String> namesOfAllCoursesTheStudentIsInItInArrayList = new ArrayList<String>();
 	private String[] namesOfAllCoursesTheStudentIsInItInArray;
 	private String[][] studentData;
-	
-	private Grading grading;;
-	
+
+	private final Grading grading;
+
 	public Search(String userEmail) {
-		
+
 		userFile = new ExcelFileManager(userEmail + ".xlsx");
 		grading = new Grading(userEmail);
 
 	}
-	
+
 	private void find_Most_Related_First_Name(String courseName, String firstName) {
 		try {
 			for (int i = 8; i <= userFile.get_Last_Row_Of_The_Sheet(courseName); i++) {

@@ -3,17 +3,18 @@ import java.io.IOException;
 
 public class LoadCourseData {
 
-	private ExcelFileManager userFile;
-	private String[][] ArrayWithAllTheCourseData;
-	public LoadCourseData(String userEmail) {
-		userFile = new ExcelFileManager(userEmail + ".xlsx");
-	}
+    private final ExcelFileManager userFile;
+    private String[][] ArrayWithAllTheCourseData;
 
-	public String[][] get_2D_Array_Loaded_With_The_Course_Data(String courseName) {
-		int numberOfRows = 0;
-		int numberOfColumns = 0;
+    public LoadCourseData(String userEmail) {
+        userFile = new ExcelFileManager(userEmail + ".xlsx");
+    }
 
-		try {//Getting proper numberOfRows and Columns for the ArrayWithAllTheCourseData, so that all of the data will fit in there
+    public String[][] get_2D_Array_Loaded_With_The_Course_Data(String courseName) {
+        int numberOfRows = 0;
+        int numberOfColumns = 0;
+
+        try {//Getting proper numberOfRows and Columns for the ArrayWithAllTheCourseData, so that all of the data will fit in there
 			numberOfRows = userFile.get_Last_Row_Of_The_Sheet(courseName) - 6;
 			numberOfColumns = userFile.get_Last_Cell_Of_Row(courseName, 6) - 1;
 		} catch (IOException e) {

@@ -3,16 +3,16 @@ import java.io.IOException;
 
 public class CreateCourse {
 
-	private ExcelFileManager userFile;
-	private boolean CourseAlreadyExists;
+    private final ExcelFileManager userFile;
+    private boolean CourseAlreadyExists;
 
-	public CreateCourse(String userEmail, String courseName, String sectionNumber) throws IOException {
-		userFile = new ExcelFileManager(userEmail + ".xlsx");
+    public CreateCourse(String userEmail, String courseName, String sectionNumber) throws IOException {
+        userFile = new ExcelFileManager(userEmail + ".xlsx");
 
-		if (userFile.does_This_Sheet_Exists(courseName)) {
-			CourseAlreadyExists = true;
-		} else {
-			userFile.create_A_New_Sheet(courseName);
+        if (userFile.does_This_Sheet_Exists(courseName)) {
+            CourseAlreadyExists = true;
+        } else {
+            userFile.create_A_New_Sheet(courseName);
 
 			userFile.update_Cell("Secttion Number:", courseName, 0, 0);
 			userFile.update_Cell(sectionNumber, courseName, 0, 1);
