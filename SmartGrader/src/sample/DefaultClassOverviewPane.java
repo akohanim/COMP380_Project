@@ -1,10 +1,12 @@
 package sample;
 
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -28,6 +30,7 @@ public class DefaultClassOverviewPane {
     public GridPane theGrid;
     public ScrollPane scrollPane;
     private String className, userEmail;
+    private int rowQuantity, columnQuantity;
 
 
     public String getClassName() {
@@ -128,6 +131,8 @@ public class DefaultClassOverviewPane {
     public void fillGrid(String[][] data, boolean withbuttons) {
         theGrid.getChildren().clear();
         theGrid.setAlignment(Pos.TOP_CENTER);
+        rowQuantity = data.length;
+        columnQuantity = data[0].length;
         for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data[row].length; col++) {
                 //create textfield
@@ -283,11 +288,54 @@ public class DefaultClassOverviewPane {
         theGrid.getChildren().clear();
         //reset the table
         LoadCourseData loadCourseData = new LoadCourseData(getUserEmail());
-        String[][] updatedData =loadCourseData.get_2D_Array_Loaded_With_The_Course_Data(getClassName());
-        fillGrid(updatedData,true);
+        String[][] updatedData = loadCourseData.get_2D_Array_Loaded_With_The_Course_Data(getClassName());
+        fillGrid(updatedData, true);
     }
 
     public void clickedRefresh(ActionEvent actionEvent) {
         refreshTable();
+    }
+
+    public void saveEnteredDataAndUpdateFinalGrades() {
+        for (int row = 0; row < rowQuantity; row++) {
+            for (int col = 0; col < columnQuantity; col++) {
+                if (col > 3 && row > 0) {
+                    TextField field = getNodeByRowColumnIndex(row, col, theGrid);
+                    //check for integer
+                    if (field.getText().matches("-?(0|[1-9]\\d*)")) {
+                        //change grade
+                        sample.Grading grading = new sample.Grading(getUserEmail());
+
+                        grading.update_The_Grade(getClassName(), Integer.parseInt(field.getText()), row + 7, col + 1);
+
+                        grading.calculate_The_Overall_Grade(getClassName(), row + 7);
+
+                    } else {
+                        //Not an integer
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input.", ButtonType.OK);
+                        DialogPane dialogPane = alert.getDialogPane();
+                        dialogPane.getStylesheets().add(getClass().getResource("/TealTeam.css").toExternalForm());
+                        alert.showAndWait();
+
+                    }
+                }
+            }
+        }
+
+        //refill table
+        refreshTable();
+    }
+
+
+    private TextField getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+        for (Node node : childrens) {
+            if (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column) {
+                result = node;
+                break;
+            }
+        }
+        return (TextField) result;
     }
 }

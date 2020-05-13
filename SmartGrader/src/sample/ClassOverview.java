@@ -207,4 +207,7 @@ public class ClassOverview {
         courseNumberLabel.textProperty().bind(new SimpleStringProperty("Course Number: " + number));
     }
 
+    public void clickedSave(ActionEvent actionEvent) {
+        defaultClassOverviewPaneController.saveEnteredDataAndUpdateFinalGrades();
+    }
 }
