@@ -136,7 +136,7 @@ public class DefaultClassOverviewPane {
         for (int row = 0; row < data.length; row++) {
             for (int col = 0; col < data[row].length; col++) {
                 //create textfield
-                TextField field = new TextField();
+                TextField field = new TextField("0");
                 field.setPrefHeight(Control.USE_COMPUTED_SIZE);
                 field.setPrefWidth(Control.USE_COMPUTED_SIZE);
                 field.setStyle("-fx-border-width: 5");
@@ -297,19 +297,15 @@ public class DefaultClassOverviewPane {
     }
 
     public void saveEnteredDataAndUpdateFinalGrades() {
+        Grading grading = new sample.Grading(getUserEmail());
         for (int row = 0; row < rowQuantity; row++) {
             for (int col = 0; col < columnQuantity; col++) {
                 if (col > 3 && row > 0) {
                     TextField field = getNodeByRowColumnIndex(row, col, theGrid);
                     //check for integer
-                    if (field.getText().matches("-?(0|[1-9]\\d*)")) {
+                    if (field.getText().matches("-?(0|[1-9]\\d*)") || field.getText().equals("")) {
                         //change grade
-                        sample.Grading grading = new sample.Grading(getUserEmail());
-
                         grading.update_The_Grade(getClassName(), Integer.parseInt(field.getText()), row + 7, col + 1);
-
-                        grading.calculate_The_Overall_Grade(getClassName(), row + 7);
-
                     } else {
                         //Not an integer
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid Input.", ButtonType.OK);
@@ -320,6 +316,9 @@ public class DefaultClassOverviewPane {
                     }
                 }
             }
+
+            grading.calculate_The_Overall_Grade(getClassName(), row + 7);
+
         }
 
         //refill table
