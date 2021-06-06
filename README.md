@@ -17,10 +17,10 @@ a per course basis.
 
 ### Contributors
 
-@Ariel Kohanim https://github.com/akohanim
+@akohanim https://github.com/akohanim
 
 @eddiemm https://github.com/eddiemm
 
-@Luca Molinari https://github.com/LuMolinari
+@LuMolinari https://github.com/LuMolinari
 
 @SulaimanRahman https://github.com/SulaimanRahman
